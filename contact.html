@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact · NOCTA</title>
+<meta name="description" content="On commence par un reel offert. Dites-nous où vous êtes et ce que vous servez : réponse sous 48h. Paris & Île-de-France." />
+<link rel="canonical" href="https://nocta.paris/contact" />
+<meta name="theme-color" content="#0a0910" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta property="og:title" content="Contact · NOCTA" />
+<meta property="og:image" content="https://nocta.paris/og.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="/"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5d57"/><stop offset="1" stop-color="#7b6cff"/></linearGradient></defs><path d="M8 24 V8 L24 24 V8" fill="none" stroke="url(#bg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>NOCTA</a>
+  <nav class="nav-links">
+    <a href="/" data-i18n="nav.home">Accueil</a>
+    <a href="/prestations" data-i18n="nav.services">Prestations</a>
+    <a href="/formules" data-i18n="nav.pricing">Formules</a>
+    <a href="/realisations" data-i18n="nav.work">Réalisations</a>
+    <a href="/contact" aria-current="page" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang" role="group" aria-label="Language"><button data-lang-btn="fr" aria-pressed="true">FR</button><button data-lang-btn="en" aria-pressed="false">EN</button></div>
+    <a href="/contact" class="btn btn-primary" data-i18n="nav.cta">Reel offert</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="section" style="padding-top:clamp(48px,8vw,90px)">
+  <div class="wrap">
+    <div class="grid cols-2" style="gap:clamp(2.5rem,6vw,5rem); align-items:start">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="pg.contact.eyebrow">Contact</span>
+        <h1 class="h-sec" style="margin:1rem 0 1.2rem" data-i18n="contact.title">Votre lieu mérite mieux qu'un téléphone.</h1>
+        <p class="lead" data-i18n="contact.lead">Dites-nous où vous êtes et ce que vous servez. On vous répond sous 48h avec une idée de reel — offerte.</p>
+
+        <div class="contact-rows" style="margin-top:2.6rem">
+          <div class="contact-row"><span class="k" data-i18n="c.k1">Email</span><a class="v" href="mailto:contact@nocta.paris">contact@nocta.paris</a></div>
+          <div class="contact-row"><span class="k" data-i18n="c.k2">Zone</span><span class="v" data-i18n="c.v2">Paris & Île-de-France</span></div>
+          <div class="contact-row"><span class="k" data-i18n="c.k3">Instagram</span><a class="v" href="https://instagram.com" target="_blank" rel="noopener">@nocta.paris</a></div>
+          <div class="contact-row"><span class="k" data-i18n="c.k4">Réponse</span><span class="v" data-i18n="c.v4">Sous 48 heures</span></div>
+        </div>
+      </div>
+
+      <div class="card reveal d1" style="padding:clamp(1.8rem,3vw,2.6rem)">
+        <div class="form-grid" id="reelForm">
+          <div class="field"><label data-i18n="f.name">Votre nom</label><input id="fName" type="text" data-i18n-attr="placeholder:f.name" /></div>
+          <div class="field"><label data-i18n="f.place">Nom du lieu</label><input id="fPlace" type="text" data-i18n-attr="placeholder:f.place" /></div>
+          <div class="field"><label data-i18n="f.email">Email</label><input id="fEmail" type="email" data-i18n-attr="placeholder:f.email" /></div>
+          <div class="field"><label data-i18n="f.type">Type de lieu</label>
+            <select id="fType">
+              <option data-i18n="f.opt.r">Restaurant</option>
+              <option data-i18n="f.opt.b">Bar</option>
+              <option data-i18n="f.opt.c">Club</option>
+              <option data-i18n="f.opt.cs">Coffee shop</option>
+              <option data-i18n="f.opt.o">Autre</option>
+            </select>
+          </div>
+          <div class="field full"><label data-i18n="f.message">Votre lieu en quelques mots</label><textarea id="fMsg" data-i18n-attr="placeholder:f.message"></textarea></div>
+          <div class="field full">
+            <button class="btn btn-primary" id="fSend" style="justify-content:center"><span data-i18n="f.send">Envoyer la demande</span><span class="arr">→</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div><div class="foot-word">NOCTA</div><p class="muted" style="max-width:32ch; margin-top:1rem" data-i18n="foot.tagline">Le contenu de votre lieu, par un réalisateur.</p></div>
+      <div class="foot-cols">
+        <div class="foot-col"><h4 data-i18n="foot.nav">Navigation</h4><a href="/" data-i18n="nav.home">Accueil</a><a href="/prestations" data-i18n="nav.services">Prestations</a><a href="/formules" data-i18n="nav.pricing">Formules</a><a href="/realisations" data-i18n="nav.work">Réalisations</a><a href="/contact" data-i18n="nav.contact">Contact</a></div>
+        <div class="foot-col"><h4 data-i18n="foot.social">Réseaux</h4><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a><a href="mailto:contact@nocta.paris">contact@nocta.paris</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© <span id="yr"></span> NOCTA — <span data-i18n="foot.rights">Tous droits réservés.</span></span><span data-i18n="foot.made">Conçu la nuit, à Paris.</span></div>
+  </div>
+</footer>
+
+<script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+<script src="/assets/i18n.js"></script>
+<script src="/assets/app.js"></script>
+<script>
+  // Zero-backend: compose a prefilled email to NOCTA.
+  document.getElementById("fSend").addEventListener("click", function () {
+    var name = document.getElementById("fName").value.trim();
+    var place = document.getElementById("fPlace").value.trim();
+    var email = document.getElementById("fEmail").value.trim();
+    var type = document.getElementById("fType").value;
+    var msg = document.getElementById("fMsg").value.trim();
+    var lang = document.documentElement.lang || "fr";
+    var subject = (lang === "en" ? "Free reel request — " : "Demande de reel offert — ") + (place || name || "NOCTA");
+    var bodyLines = [
+      (lang === "en" ? "Name: " : "Nom : ") + name,
+      (lang === "en" ? "Venue: " : "Lieu : ") + place,
+      (lang === "en" ? "Email: " : "Email : ") + email,
+      (lang === "en" ? "Type: " : "Type : ") + type,
+      "",
+      msg
+    ];
+    var href = "mailto:contact@nocta.paris?subject=" + encodeURIComponent(subject) +
+               "&body=" + encodeURIComponent(bodyLines.join("\n"));
+    window.location.href = href;
+  });
+</script>
+</body>
+</html>
