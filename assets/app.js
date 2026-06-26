@@ -182,9 +182,13 @@
 
     let W = 0, H = 0;
     function resize() {
-      const w = canvas.clientWidth || 1, h = canvas.clientHeight || 1;
+      const host = canvas.parentElement || canvas;
+      const r = host.getBoundingClientRect();
+      const w = Math.max(Math.round(r.width), 1), h = Math.max(Math.round(r.height), 1);
       if (w === W && h === H) return;
       W = w; H = h;
+      canvas.style.width = w + "px";   // force full-bleed regardless of CSS
+      canvas.style.height = h + "px";
       renderer.setSize(w, h, false);
       camera.aspect = w / h; camera.updateProjectionMatrix();
       layers.forEach(place);
