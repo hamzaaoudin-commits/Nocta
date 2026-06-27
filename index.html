@@ -1,287 +1,268 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NOCTA · Le contenu de votre lieu, par un réalisateur</title>
-<meta name="description" content="Tournage, montage, musique originale, publication et réputation pour les lieux d'hôtellerie-restauration. Paris & Île-de-France. Un réalisateur, pas un stagiaire." />
-<link rel="canonical" href="https://nocta.paris/" />
-<meta name="theme-color" content="#0a0910" />
-
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="fr_FR" />
-<meta property="og:site_name" content="NOCTA" />
-<meta property="og:url" content="https://nocta.paris/" />
-<meta property="og:title" content="NOCTA · Le contenu de votre lieu, par un réalisateur" />
-<meta property="og:description" content="Un seul jour de tournage par mois, un mois entier de contenu. Paris & Île-de-France." />
-<meta property="og:image" content="https://nocta.paris/og.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="NOCTA · Le contenu de votre lieu, par un réalisateur" />
-<meta name="twitter:image" content="https://nocta.paris/og.png" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/assets/styles.css?v=3" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NOCTA · Le contenu de votre lieu, géré de A à Z</title>
+<meta content="Community management pour les lieux d'hôtellerie-restauration : stratégie éditoriale, création de contenu, publication, community, Google &amp; avis. Paris &amp; Île-de-France." name="description"/>
+<link href="https://nocta.paris/" rel="canonical"/>
+<meta content="#0a0910" name="theme-color"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="website" property="og:type"/>
+<meta content="fr_FR" property="og:locale"/>
+<meta content="NOCTA" property="og:site_name"/>
+<meta content="https://nocta.paris/" property="og:url"/>
+<meta content="NOCTA · Le contenu de votre lieu, géré de A à Z" property="og:title"/>
+<meta content="Votre présence en ligne gérée de A à Z, par des community managers. Paris &amp; Île-de-France." property="og:description"/>
+<meta content="https://nocta.paris/og.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="NOCTA · Le contenu de votre lieu, géré de A à Z" name="twitter:title"/>
+<meta content="https://nocta.paris/og.png" name="twitter:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Hanken+Grotesk:wght@300;400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/styles.css?v=4" rel="stylesheet"/>
 </head>
 <body>
-
 <!-- ============ HEADER ============ -->
 <header class="nav">
-  <a class="brand" href="/">
-    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
-      <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5d57"/><stop offset="1" stop-color="#7b6cff"/></linearGradient></defs>
-      <path d="M8 24 V8 L24 24 V8" fill="none" stroke="url(#bg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+<a class="brand" href="/">
+<svg aria-hidden="true" class="mark" viewbox="0 0 32 32">
+<defs><lineargradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ff5d57"></stop><stop offset="1" stop-color="#7b6cff"></stop></lineargradient></defs>
+<path d="M8 24 V8 L24 24 V8" fill="none" stroke="url(#bg)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
     NOCTA
   </a>
-  <nav class="nav-links">
-    <a href="/" aria-current="page" data-i18n="nav.home">Accueil</a>
-    <a href="/prestations" data-i18n="nav.services">Prestations</a>
-    <a href="/formules" data-i18n="nav.pricing">Formules</a>
-    <a href="/realisations" data-i18n="nav.work">Réalisations</a>
-    <a href="/contact" data-i18n="nav.contact">Contact</a>
-  </nav>
-  <div class="nav-right">
-    <div class="lang" role="group" aria-label="Language">
-      <button data-lang-btn="fr" aria-pressed="true">FR</button>
-      <button data-lang-btn="en" aria-pressed="false">EN</button>
-    </div>
-    <a href="/contact" class="btn btn-primary" data-i18n="nav.cta">Reel offert</a>
-    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  </div>
+<nav class="nav-links">
+<a aria-current="page" data-i18n="nav.home" href="/">Accueil</a>
+<a data-i18n="nav.services" href="/prestations">Prestations</a>
+<a data-i18n="nav.pricing" href="/formules">Formules</a>
+<a data-i18n="nav.work" href="/realisations">Réalisations</a>
+<a data-i18n="nav.contact" href="/contact">Contact</a>
+</nav>
+<div class="nav-right">
+<div aria-label="Language" class="lang" role="group">
+<button aria-pressed="true" data-lang-btn="fr">FR</button>
+<button aria-pressed="false" data-lang-btn="en">EN</button>
+</div>
+<a class="btn btn-primary" data-i18n="nav.cta" href="/contact">Prendre contact</a>
+<button aria-expanded="false" aria-label="Menu" class="burger"><span></span><span></span><span></span></button>
+</div>
 </header>
-
 <main>
-
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-fallback"></div>
-  <canvas id="bokeh"></canvas>
-  <div class="wrap">
-    <span class="hero-kicker eyebrow"><span class="dot"></span><span data-i18n="hero.kicker">Paris & Île-de-France</span></span>
-    <h1 class="wordmark flicker">NOCTA</h1>
-    <p class="hero-tag" data-i18n="hero.tag">Le contenu de votre lieu, <b>par un réalisateur.</b></p>
-    <div class="hero-cta">
-      <a href="/contact" class="btn btn-primary"><span data-i18n="hero.cta1">Recevoir un reel offert</span><span class="arr">→</span></a>
-      <a href="/formules" class="btn btn-ghost" data-i18n="hero.cta2">Voir les formules</a>
-    </div>
-  </div>
-  <span class="scroll-hint" data-i18n="hero.scroll">Défiler</span>
-</section>
-
-<!-- ============ MARQUEE ============ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item" data-i18n="mq.1">Restaurants</span>
-    <span class="marquee-item" data-i18n="mq.2">Bars</span>
-    <span class="marquee-item" data-i18n="mq.3">Clubs</span>
-    <span class="marquee-item" data-i18n="mq.4">Coffee shops</span>
-    <span class="marquee-item" data-i18n="mq.5">Caves & bistrots</span>
-    <span class="marquee-item" data-i18n="mq.6">Rooftops</span>
-  </div>
+<div class="hero-fallback"></div>
+<canvas id="bokeh"></canvas>
+<div class="wrap">
+<span class="hero-kicker eyebrow"><span class="dot"></span><span data-i18n="hero.kicker">Community management · Paris &amp; Île-de-France</span></span>
+<h1 class="wordmark flicker">NOCTA</h1>
+<p class="hero-tag" data-i18n="hero.tag">Le contenu de votre lieu, <b>géré de A à Z.</b></p>
+<div class="hero-cta">
+<a class="btn btn-primary" href="/contact"><span data-i18n="hero.cta1">Prendre contact</span><span class="arr">→</span></a>
+<a class="btn btn-ghost" data-i18n="hero.cta2" href="/formules">Voir les formules</a>
 </div>
-
+</div>
+<span class="scroll-hint" data-i18n="hero.scroll">Défiler</span>
+</section>
+<!-- ============ MARQUEE ============ -->
+<div aria-hidden="true" class="marquee">
+<div class="marquee-track">
+<span class="marquee-item" data-i18n="mq.1">Restaurants</span>
+<span class="marquee-item" data-i18n="mq.2">Bars</span>
+<span class="marquee-item" data-i18n="mq.3">Clubs</span>
+<span class="marquee-item" data-i18n="mq.4">Coffee shops</span>
+<span class="marquee-item" data-i18n="mq.5">Caves &amp; bistrots</span>
+<span class="marquee-item" data-i18n="mq.6">Rooftops</span>
+</div>
+</div>
 <!-- ============ MANIFESTO ============ -->
 <section class="section manifesto">
-  <div class="wrap">
-    <span class="eyebrow reveal" data-i18n="man.eyebrow">Le constat</span>
-    <p class="reveal d1" data-i18n="man.body">Votre cuisine est excellente. Votre salle est pleine. <em>Et pourtant</em> votre Instagram ressemble à un reel flou filmé entre deux services.</p>
-  </div>
+<div class="wrap">
+<span class="eyebrow reveal" data-i18n="man.eyebrow">Le constat</span>
+<p class="reveal d1" data-i18n="man.body">Votre cuisine est excellente. Votre salle est pleine. <em>Et pourtant</em> votre Instagram dort, vos messages restent sans réponse et vos avis vous échappent.</p>
+</div>
 </section>
-
 <!-- ============ FOCUS DEMO ============ -->
 <section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-i18n="focus.eyebrow">La différence</span>
-      <h2 class="h-sec" data-i18n="focus.title">Elle se voit en trois secondes.</h2>
-      <p class="lead" style="margin-top:1.2rem" data-i18n="focus.lead">Le même lieu, deux regards. Passez la souris : faites le point.</p>
-    </div>
-    <div class="focus-demo reveal d1">
-      <div class="focus-pane bad rack">
-        <span class="tag" data-i18n="focus.bad.tag">Avant — au téléphone</span>
-        <span class="big" data-i18n="focus.bad.big">Lumière de plafonnier, cadre tremblant, musique tendance volée, publié quand on y pense.</span>
-      </div>
-      <div class="focus-pane good rack">
-        <span class="tag" data-i18n="focus.good.tag">Après — par NOCTA</span>
-        <span class="big" data-i18n="focus.good.big">Heure dorée, image étalonnée, musique composée pour le lieu, calendrier tenu.</span>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow" data-i18n="focus.eyebrow">La différence</span>
+<h2 class="h-sec" data-i18n="focus.title">Elle se voit en trois secondes.</h2>
+<p class="lead" data-i18n="focus.lead" style="margin-top:1.2rem">Le même lieu, deux façons de le gérer. À gauche, un compte laissé à l'abandon. À droite, un community manager qui tient la barre.</p>
+</div>
+<div class="focus-demo reveal d1">
+<div class="focus-pane bad rack">
+<span class="tag" data-i18n="focus.bad.tag">Sans community manager</span>
+<span class="big" data-i18n="focus.bad.big">Publications au hasard, légendes bâclées, messages sans réponse, avis ignorés.</span>
+</div>
+<div class="focus-pane good rack">
+<span class="tag" data-i18n="focus.good.tag">Avec NOCTA</span>
+<span class="big" data-i18n="focus.good.big">Ligne éditoriale claire, calendrier tenu, communauté qui répond, réputation soignée.</span>
+</div>
+</div>
+</div>
 </section>
-
-<hr class="rule" />
-
+<hr class="rule"/>
 <!-- ============ PILLARS ============ -->
 <section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-i18n="pil.eyebrow">Ce qu'on prend en main</span>
-      <h2 class="h-sec" data-i18n="pil.title">Toute la chaîne. Vous ne touchez plus à rien.</h2>
-    </div>
-    <div class="grid cols-3">
-      <article class="card tilt reveal"><span class="num">01</span><h3 data-i18n="pil.1.t">Tournage</h3><p data-i18n="pil.1.d">Une journée par mois dans votre lieu, à la lumière qui le sublime. Caméra cinéma, pas smartphone.</p></article>
-      <article class="card tilt reveal d1"><span class="num">02</span><h3 data-i18n="pil.2.t">Post-production</h3><p data-i18n="pil.2.d">Montage rythmé, étalonnage cinéma et musique originale composée pour votre ambiance.</p></article>
-      <article class="card tilt reveal d2"><span class="num">03</span><h3 data-i18n="pil.3.t">Publication</h3><p data-i18n="pil.3.d">Calendrier éditorial pensé, légendes écrites, formats adaptés à chaque réseau. Rien ne dort.</p></article>
-      <article class="card tilt reveal"><span class="num">04</span><h3 data-i18n="pil.4.t">Community</h3><p data-i18n="pil.4.d">Réponses aux messages et commentaires, ton de votre maison, présence vivante au quotidien.</p></article>
-      <article class="card tilt reveal d1"><span class="num">05</span><h3 data-i18n="pil.5.t">Google & avis</h3><p data-i18n="pil.5.d">Fiche optimisée, photos pro, gestion des avis. La première impression se joue avant la porte.</p></article>
-      <article class="card tilt reveal d2"><span class="num">06</span><h3 data-i18n="pil.6.t">Croissance</h3><p data-i18n="pil.6.d">Pilotage de la pub Meta & TikTok, événementiel, seeding créateurs. On fait venir du monde.</p></article>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow" data-i18n="pil.eyebrow">Ce qu'on prend en main</span>
+<h2 class="h-sec" data-i18n="pil.title">Toute la chaîne. Vous ne touchez plus à rien.</h2>
+</div>
+<div class="grid cols-3">
+<article class="card tilt reveal"><span class="num">01</span><h3 data-i18n="pil.1.t">Stratégie éditoriale</h3><p data-i18n="pil.1.d">On définit votre ligne, votre ton, vos rubriques. Une direction claire, pas des posts au hasard.</p></article>
+<article class="card tilt reveal d1"><span class="num">02</span><h3 data-i18n="pil.2.t">Création de contenu</h3><p data-i18n="pil.2.d">Montage de vos formats courts, visuels, carrousels. On façonne le contenu à partir de votre matière et de vos temps forts.</p></article>
+<article class="card tilt reveal d2"><span class="num">03</span><h3 data-i18n="pil.3.t">Publication</h3><p data-i18n="pil.3.d">Calendrier éditorial tenu, légendes écrites, formats adaptés à chaque réseau. Rien ne dort.</p></article>
+<article class="card tilt reveal"><span class="num">04</span><h3 data-i18n="pil.4.t">Community management</h3><p data-i18n="pil.4.d">Réponses aux messages et commentaires, dans le ton de votre maison. Une présence vivante au quotidien.</p></article>
+<article class="card tilt reveal d1"><span class="num">05</span><h3 data-i18n="pil.5.t">Google &amp; avis</h3><p data-i18n="pil.5.d">Fiche optimisée, photos soignées, gestion des avis. La première impression se joue avant la porte.</p></article>
+<article class="card tilt reveal d2"><span class="num">06</span><h3 data-i18n="pil.6.t">Croissance</h3><p data-i18n="pil.6.d">Pilotage de la pub Meta &amp; TikTok, événementiel, seeding créateurs. On fait venir du monde.</p></article>
+</div>
+</div>
 </section>
-
 <!-- ============ STEPS ============ -->
 <section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow iris" data-i18n="steps.eyebrow">Comment ça marche</span>
-      <h2 class="h-sec" data-i18n="steps.title">Un seul jour de tournage. Un mois entier de contenu.</h2>
-    </div>
-    <div class="steps reveal d1">
-      <div class="step"><span class="n">1</span><div><h3 data-i18n="steps.1.t">On vient voir</h3><p data-i18n="steps.1.d">Un appel, une visite. On comprend votre lieu, votre clientèle, ce qui vous distingue.</p></div></div>
-      <div class="step"><span class="n">2</span><div><h3 data-i18n="steps.2.t">On tourne</h3><p data-i18n="steps.2.d">Une journée, à l'heure qui flatte votre lieu. Vous continuez le service, on s'efface.</p></div></div>
-      <div class="step"><span class="n">3</span><div><h3 data-i18n="steps.3.t">On façonne</h3><p data-i18n="steps.3.d">Montage, étalonnage, musique. On transforme la journée en quinze à vingt contenus.</p></div></div>
-      <div class="step"><span class="n">4</span><div><h3 data-i18n="steps.4.t">On diffuse</h3><p data-i18n="steps.4.d">Publication, réponses, avis, pub. Vous regardez les vues monter. C'est tout.</p></div></div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow iris" data-i18n="steps.eyebrow">Comment ça marche</span>
+<h2 class="h-sec" data-i18n="steps.title">Un seul interlocuteur. Un mois entier de présence.</h2>
+</div>
+<div class="steps reveal d1">
+<div class="step"><span class="n">1</span><div><h3 data-i18n="steps.1.t">On vous écoute</h3><p data-i18n="steps.1.d">Un appel, un audit de vos réseaux. On comprend votre lieu, votre clientèle, ce qui vous distingue.</p></div></div>
+<div class="step"><span class="n">2</span><div><h3 data-i18n="steps.2.t">On planifie</h3><p data-i18n="steps.2.d">Ligne éditoriale, calendrier, rubriques. On pose une vraie stratégie, pas du post au coup par coup.</p></div></div>
+<div class="step"><span class="n">3</span><div><h3 data-i18n="steps.3.t">On crée</h3><p data-i18n="steps.3.d">Montage, visuels, légendes. On transforme votre matière en contenu qui donne envie.</p></div></div>
+<div class="step"><span class="n">4</span><div><h3 data-i18n="steps.4.t">On gère</h3><p data-i18n="steps.4.d">Publication, réponses, avis, pub. Vous regardez votre présence grandir. C'est tout.</p></div></div>
+</div>
+</div>
 </section>
-
 <!-- ============ STATS ============ -->
 <section class="section">
-  <div class="wrap stats">
-    <div class="stat reveal"><div class="v" data-count data-i18n="stat.1.v">1</div><div class="l" data-i18n="stat.1.l">Journée de tournage / mois</div></div>
-    <div class="stat reveal d1"><div class="v" data-count data-i18n="stat.2.v">20</div><div class="l" data-i18n="stat.2.l">Contenus livrés / mois</div></div>
-    <div class="stat reveal d2"><div class="v" data-i18n="stat.3.v">48h</div><div class="l" data-i18n="stat.3.l">Réponse à votre demande</div></div>
-  </div>
+<div class="wrap stats">
+<div class="stat reveal"><div class="v" data-count="" data-i18n="stat.1.v">20</div><div class="l" data-i18n="stat.1.l">Contenus publiés / mois</div></div>
+<div class="stat reveal d1"><div class="v" data-count="" data-i18n="stat.2.v">365</div><div class="l" data-i18n="stat.2.l">Jours de présence / an</div></div>
+<div class="stat reveal d2"><div class="v" data-i18n="stat.3.v">48h</div><div class="l" data-i18n="stat.3.l">Réponse à votre demande</div></div>
+</div>
 </section>
-
-<hr class="rule" />
-
+<hr class="rule"/>
 <!-- ============ PRICING TEASER ============ -->
 <section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-i18n="price.eyebrow">Les formules</span>
-      <h2 class="h-sec" data-i18n="price.title">Trois niveaux d'engagement. Sans engagement de durée.</h2>
-      <p class="lead" style="margin-top:1.2rem" data-i18n="price.lead">Mensuel, résiliable quand vous voulez. On vous prouve la valeur avant de parler du long terme.</p>
-    </div>
-    <div class="tiers">
-      <div class="tier reveal">
-        <span class="t-name" data-i18n="tier.1.name">Devanture</span>
-        <span class="t-desc" data-i18n="tier.1.desc">La présence. Pour exister, joliment.</span>
-        <div class="price">500€ <small data-i18n="price.month">/ mois</small></div>
-        <ul>
-          <li data-i18n="tier.1.f1">½ journée de tournage / 2 mois</li><li data-i18n="tier.1.f2">8 à 10 contenus / mois</li>
-          <li data-i18n="tier.1.f3">Montage & étalonnage</li><li data-i18n="tier.1.f4">Musique originale</li>
-        </ul>
-        <a href="/formules" class="btn btn-ghost" data-i18n="tier.cta">Demander cette formule</a>
-      </div>
-      <div class="tier feature reveal d1">
-        <span class="badge" data-i18n="price.popular">Le plus choisi</span>
-        <span class="t-name" data-i18n="tier.2.name">Salle</span>
-        <span class="t-desc" data-i18n="tier.2.desc">On s'occupe de tout. Le confort total.</span>
-        <div class="price">950€ <small data-i18n="price.month">/ mois</small></div>
-        <ul>
-          <li data-i18n="tier.1.f2">8 à 10 contenus / mois</li><li data-i18n="tier.1.f3">Montage & étalonnage</li>
-          <li data-i18n="tier.1.f5">Calendrier de publication</li><li data-i18n="tier.1.f6">Community management</li><li data-i18n="tier.1.f7">Gestion Google & avis</li>
-        </ul>
-        <a href="/formules" class="btn btn-primary" data-i18n="tier.cta">Demander cette formule</a>
-      </div>
-      <div class="tier reveal d2">
-        <span class="t-name" data-i18n="tier.2.name2">Comble</span>
-        <span class="t-desc" data-i18n="tier.3.desc">Partout, tout le temps. La pleine puissance.</span>
-        <div class="price">1500€ <small data-i18n="price.month">/ mois</small></div>
-        <ul>
-          <li data-i18n="tier.1.f3">Montage & étalonnage</li><li data-i18n="tier.1.f6">Community management</li>
-          <li data-i18n="tier.1.f7">Gestion Google & avis</li><li data-i18n="tier.1.f8">Pilotage publicitaire</li>
-        </ul>
-        <a href="/formules" class="btn btn-ghost" data-i18n="tier.cta">Demander cette formule</a>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow" data-i18n="price.eyebrow">Les formules</span>
+<h2 class="h-sec" data-i18n="price.title">Trois niveaux d'engagement. Sans engagement de durée.</h2>
+<p class="lead" data-i18n="price.lead" style="margin-top:1.2rem">Mensuel, résiliable quand vous voulez. On vous prouve la valeur avant de parler du long terme.</p>
+</div>
+<div class="tiers">
+<div class="tier reveal">
+<span class="t-name" data-i18n="tier.1.name">Devanture</span>
+<span class="t-desc" data-i18n="tier.1.desc">La présence. Pour exister, joliment.</span>
+<div class="price">500€ <small data-i18n="price.month">/ mois</small></div>
+<ul>
+<li data-i18n="tier.1.f1">Audit &amp; ligne éditoriale</li><li data-i18n="tier.1.f2">8 à 10 contenus / mois</li>
+<li data-i18n="tier.1.f3">Montage &amp; visuels</li><li data-i18n="tier.1.f4">Stratégie de contenu</li>
+</ul>
+<a class="btn btn-ghost" data-i18n="tier.cta" href="/formules">Demander cette formule</a>
+</div>
+<div class="tier feature reveal d1">
+<span class="badge" data-i18n="price.popular">Le plus choisi</span>
+<span class="t-name" data-i18n="tier.2.name">Salle</span>
+<span class="t-desc" data-i18n="tier.2.desc">On s'occupe de tout. Le confort total.</span>
+<div class="price">950€ <small data-i18n="price.month">/ mois</small></div>
+<ul>
+<li data-i18n="tier.1.f2">8 à 10 contenus / mois</li><li data-i18n="tier.1.f3">Montage &amp; visuels</li>
+<li data-i18n="tier.1.f5">Calendrier de publication</li><li data-i18n="tier.1.f6">Community management</li><li data-i18n="tier.1.f7">Gestion Google &amp; avis</li>
+</ul>
+<a class="btn btn-primary" data-i18n="tier.cta" href="/formules">Demander cette formule</a>
+</div>
+<div class="tier reveal d2">
+<span class="t-name" data-i18n="tier.2.name2">Comble</span>
+<span class="t-desc" data-i18n="tier.3.desc">Partout, tout le temps. La pleine puissance.</span>
+<div class="price">1500€ <small data-i18n="price.month">/ mois</small></div>
+<ul>
+<li data-i18n="tier.1.f3">Montage &amp; visuels</li><li data-i18n="tier.1.f6">Community management</li>
+<li data-i18n="tier.1.f7">Gestion Google &amp; avis</li><li data-i18n="tier.1.f8">Pilotage publicitaire</li>
+</ul>
+<a class="btn btn-ghost" data-i18n="tier.cta" href="/formules">Demander cette formule</a>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ============ WORK TEASER ============ -->
 <section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow iris" data-i18n="work.eyebrow">Réalisations</span>
-      <h2 class="h-sec" data-i18n="work.title">Des lieux qui se regardent comme des films.</h2>
-      <p class="lead" style="margin-top:1.2rem" data-i18n="work.lead">Un aperçu du regard NOCTA appliqué à différents univers. Survolez pour faire le point.</p>
-    </div>
-    <div class="reel-grid">
-      <a href="/realisations" class="reel rack reveal">
-        <div class="glow" style="background:radial-gradient(70% 70% at 30% 30%, #ff5d57, transparent 60%), radial-gradient(60% 60% at 80% 80%, #7b6cff, transparent 60%), #16131f"></div>
-        <span class="play">▶</span>
-        <div class="meta"><div class="k" data-i18n="work.r1.k">Restaurant</div><div class="t" data-i18n="work.r1.t">L'heure dorée</div></div>
-      </a>
-      <a href="/realisations" class="reel rack reveal d1">
-        <div class="glow" style="background:radial-gradient(70% 70% at 70% 30%, #7b6cff, transparent 60%), radial-gradient(60% 60% at 20% 80%, #ff5d57, transparent 60%), #16131f"></div>
-        <span class="play">▶</span>
-        <div class="meta"><div class="k" data-i18n="work.r2.k">Cocktail bar</div><div class="t" data-i18n="work.r2.t">Après minuit</div></div>
-      </a>
-      <a href="/realisations" class="reel rack reveal d2">
-        <div class="glow" style="background:radial-gradient(70% 70% at 50% 70%, #ff8a85, transparent 60%), radial-gradient(60% 60% at 50% 20%, #7b6cff, transparent 55%), #16131f"></div>
-        <span class="play">▶</span>
-        <div class="meta"><div class="k" data-i18n="work.r3.k">Club</div><div class="t" data-i18n="work.r3.t">Le sous-sol</div></div>
-      </a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow iris" data-i18n="work.eyebrow">Réalisations</span>
+<h2 class="h-sec" data-i18n="work.title">Des comptes qu'on a envie de suivre.</h2>
+<p class="lead" data-i18n="work.lead" style="margin-top:1.2rem">Un aperçu du contenu NOCTA selon les univers. Survolez pour faire le point.</p>
+</div>
+<div class="reel-grid">
+<a class="reel rack reveal" href="/realisations">
+<div class="glow" style="background:radial-gradient(70% 70% at 30% 30%, #ff5d57, transparent 60%), radial-gradient(60% 60% at 80% 80%, #7b6cff, transparent 60%), #16131f"></div>
+<span class="play">▶</span>
+<div class="meta"><div class="k" data-i18n="work.r1.k">Restaurant</div><div class="t" data-i18n="work.r1.t">L'heure dorée</div></div>
+</a>
+<a class="reel rack reveal d1" href="/realisations">
+<div class="glow" style="background:radial-gradient(70% 70% at 70% 30%, #7b6cff, transparent 60%), radial-gradient(60% 60% at 20% 80%, #ff5d57, transparent 60%), #16131f"></div>
+<span class="play">▶</span>
+<div class="meta"><div class="k" data-i18n="work.r2.k">Cocktail bar</div><div class="t" data-i18n="work.r2.t">Après minuit</div></div>
+</a>
+<a class="reel rack reveal d2" href="/realisations">
+<div class="glow" style="background:radial-gradient(70% 70% at 50% 70%, #ff8a85, transparent 60%), radial-gradient(60% 60% at 50% 20%, #7b6cff, transparent 55%), #16131f"></div>
+<span class="play">▶</span>
+<div class="meta"><div class="k" data-i18n="work.r3.k">Club</div><div class="t" data-i18n="work.r3.t">Le sous-sol</div></div>
+</a>
+</div>
+</div>
 </section>
-
 <!-- ============ CTA BAND ============ -->
 <section class="section">
-  <div class="wrap">
-    <div class="cta-band reveal">
-      <span class="eyebrow" data-i18n="cta.eyebrow">Sans engagement</span>
-      <h2 style="margin-top:1rem" data-i18n="cta.title">On vous offre un reel.</h2>
-      <p class="lead" data-i18n="cta.lead">On vient capter votre terrasse à l'heure dorée, votre comptoir, un plat. On vous l'envoie. Vous voyez exactement ce que tout votre mois peut devenir.</p>
-      <a href="/contact" class="btn btn-primary"><span data-i18n="cta.btn">Recevoir mon reel offert</span><span class="arr">→</span></a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="cta-band reveal">
+<span class="eyebrow" data-i18n="cta.eyebrow">Sans engagement</span>
+<h2 data-i18n="cta.title" style="margin-top:1rem">On s'occupe de tout.</h2>
+<p class="lead" data-i18n="cta.lead">Dites-nous où vous en êtes. On vous montre concrètement ce que votre présence peut devenir en un mois.</p>
+<a class="btn btn-primary" href="/contact"><span data-i18n="cta.btn">Prendre contact</span><span class="arr">→</span></a>
+</div>
+</div>
 </section>
-
 </main>
-
 <!-- ============ FOOTER ============ -->
 <footer class="foot">
-  <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <div class="foot-word">NOCTA</div>
-        <p class="muted" style="max-width:32ch; margin-top:1rem" data-i18n="foot.tagline">Le contenu de votre lieu, par un réalisateur.</p>
-      </div>
-      <div class="foot-cols">
-        <div class="foot-col">
-          <h4 data-i18n="foot.nav">Navigation</h4>
-          <a href="/" data-i18n="nav.home">Accueil</a>
-          <a href="/prestations" data-i18n="nav.services">Prestations</a>
-          <a href="/formules" data-i18n="nav.pricing">Formules</a>
-          <a href="/realisations" data-i18n="nav.work">Réalisations</a>
-          <a href="/contact" data-i18n="nav.contact">Contact</a>
-        </div>
-        <div class="foot-col">
-          <h4 data-i18n="foot.social">Réseaux</h4>
-          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
-          <a href="mailto:contact@nocta.paris">contact@nocta.paris</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© <span id="yr"></span> NOCTA — <span data-i18n="foot.rights">Tous droits réservés.</span></span>
-      <span data-i18n="foot.made">Conçu la nuit, à Paris.</span>
-    </div>
-  </div>
+<div class="wrap">
+<div class="foot-top">
+<div>
+<div class="foot-word">NOCTA</div>
+<p class="muted" data-i18n="foot.tagline" style="max-width:32ch; margin-top:1rem">Le contenu de votre lieu, géré de A à Z.</p>
+</div>
+<div class="foot-cols">
+<div class="foot-col">
+<h4 data-i18n="foot.nav">Navigation</h4>
+<a data-i18n="nav.home" href="/">Accueil</a>
+<a data-i18n="nav.services" href="/prestations">Prestations</a>
+<a data-i18n="nav.pricing" href="/formules">Formules</a>
+<a data-i18n="nav.work" href="/realisations">Réalisations</a>
+<a data-i18n="nav.contact" href="/contact">Contact</a>
+</div>
+<div class="foot-col">
+<h4 data-i18n="foot.social">Réseaux</h4>
+<a href="https://instagram.com" rel="noopener" target="_blank">Instagram</a>
+<a href="https://tiktok.com" rel="noopener" target="_blank">TikTok</a>
+<a href="mailto:contact@nocta.paris">contact@nocta.paris</a>
+</div>
+</div>
+</div>
+<div class="foot-bottom">
+<span>© <span id="yr"></span> NOCTA — <span data-i18n="foot.rights">Tous droits réservés.</span></span>
+<span data-i18n="foot.made">Conçu la nuit, à Paris.</span>
+</div>
+</div>
 </footer>
-
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
-<script src="/assets/i18n.js?v=3"></script>
-<script src="/assets/app.js?v=3"></script>
+<script src="/assets/i18n.js?v=4"></script>
+<script src="/assets/app.js?v=4"></script>
 </body>
 </html>

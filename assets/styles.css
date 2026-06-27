@@ -194,7 +194,7 @@ h1,h2,h3{ font-family:var(--display); font-weight:700; line-height:1.02; letter-
 .focus-pane{ background:var(--ink-2); padding:clamp(1.6rem,4vw,3rem); min-height:300px;
   display:flex; flex-direction:column; justify-content:flex-end; gap:.8rem; position:relative; }
 .focus-pane .tag{ font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; }
-.focus-pane.bad{ filter:blur(3.5px) grayscale(.6) brightness(.7); }
+.focus-pane.bad{ filter:grayscale(.55) brightness(.82); }
 .focus-pane.bad .tag{ color:var(--smoke-dim); }
 .focus-pane.good .tag{ color:var(--coral); }
 .focus-pane .big{ font-family:var(--display); font-weight:700; font-size:clamp(1.4rem,3vw,2.1rem); line-height:1.05; }
