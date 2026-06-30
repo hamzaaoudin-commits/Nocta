@@ -337,3 +337,56 @@ h1,h2,h3{ font-family:var(--display); font-weight:700; line-height:1.02; letter-
   .step{ grid-template-columns:1fr; gap:.6rem; }
   .contact-row{ flex-direction:column; gap:.3rem; }
 }
+
+/* ============================================================
+   Conviction blocks — content types, case studies, FAQ, why
+   ============================================================ */
+
+/* format chip (content types) */
+.chip{ display:inline-block; font-family:var(--mono); font-size:.62rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--iris-soft); border:1px solid var(--line); border-radius:100px;
+  padding:.35em .8em; margin-bottom:1.1rem; }
+
+/* case studies */
+.cases{ display:grid; gap:1.1rem; }
+.case{ background:var(--ink-2); border:1px solid var(--line-soft); border-radius:20px;
+  padding:clamp(1.7rem,3.5vw,3rem); transition:border-color .4s; }
+.case:hover{ border-color:var(--line); }
+.case-kicker{ font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--coral); }
+.case h3{ font-size:clamp(1.5rem,3.5vw,2.3rem); margin:.55rem 0 1.6rem; line-height:1.05; }
+.case-body{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem 2.4rem; }
+.case-body .lbl{ font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--smoke-dim); margin-bottom:.5rem; }
+.case-body p{ color:var(--cream); font-size:.98rem; }
+.case-metrics{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2rem;
+  padding-top:1.8rem; border-top:1px solid var(--line-soft); }
+.case-metric .v{ font-family:var(--display); font-weight:800; font-size:clamp(1.7rem,4vw,2.7rem); line-height:1;
+  background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.case-metric .l{ font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--smoke); margin-top:.5rem; }
+@media (max-width:700px){ .case-body{ grid-template-columns:1fr; } }
+
+/* why band */
+.why{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; }
+.why-item{ padding:1.7rem; border:1px solid var(--line-soft); border-radius:16px; background:var(--ink-2);
+  transition:border-color .4s, transform .5s var(--ease); }
+.why-item:hover{ border-color:var(--line); }
+.why-item .h{ font-family:var(--display); font-weight:700; font-size:1.2rem; margin-bottom:.5rem; }
+.why-item .h::before{ content:"✳"; color:var(--coral); margin-right:.5rem; font-size:.8em; }
+.why-item p{ color:var(--smoke); font-size:.95rem; }
+@media (max-width:900px){ .why{ grid-template-columns:1fr; } }
+
+/* FAQ accordion */
+.faq{ display:grid; gap:.6rem; max-width:840px; }
+.faq-item{ border:1px solid var(--line-soft); border-radius:14px; background:var(--ink-2); overflow:hidden;
+  transition:border-color .4s; }
+.faq-item.open{ border-color:var(--line); }
+.faq-q{ width:100%; text-align:left; background:none; border:0; cursor:pointer; color:var(--cream);
+  font-family:var(--display); font-weight:600; font-size:clamp(1.02rem,2vw,1.22rem);
+  padding:1.15rem 1.4rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.faq-q .pm{ font-family:var(--mono); color:var(--coral); transition:transform .35s var(--ease); flex:none; font-size:1.2rem; }
+.faq-item.open .faq-q .pm{ transform:rotate(45deg); }
+.faq-a{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s var(--ease); }
+.faq-item.open .faq-a{ grid-template-rows:1fr; }
+.faq-a > div{ overflow:hidden; }
+.faq-a p{ color:var(--smoke); padding:0 1.4rem 1.25rem; font-size:.97rem; }

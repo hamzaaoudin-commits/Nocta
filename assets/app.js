@@ -45,22 +45,26 @@
     racks.forEach(el => rio.observe(el));
   }
 
-  /* ---------- count-up stats ---------- */
+  /* ---------- count-up stats (handles prefix / decimals / suffix) ---------- */
   document.querySelectorAll("[data-count]").forEach(el => {
     const target = el.textContent.trim();
-    const num = parseInt(target.replace(/\D/g, ""), 10);
-    const suffix = target.replace(/[0-9]/g, "");
-    if (!num || reduce) return;
+    const m = target.match(/^(\D*?)(\d+(?:[.,]\d+)?)(\D*)$/);
+    if (!m || reduce) return;
+    const prefix = m[1], numStr = m[2], suffix = m[3];
+    const decimals = (numStr.split(/[.,]/)[1] || "").length;
+    const usesComma = numStr.indexOf(",") > -1;
+    const num = parseFloat(numStr.replace(",", "."));
     let started = false;
+    const fmt = (v) => { let t = v.toFixed(decimals); if (usesComma) t = t.replace(".", ","); return prefix + t + suffix; };
     const cio = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting && !started) {
           started = true;
-          const dur = 1100, t0 = performance.now();
+          const dur = 1200, t0 = performance.now();
           const tick = (t) => {
             const p = Math.min((t - t0) / dur, 1);
             const eased = 1 - Math.pow(1 - p, 3);
-            el.textContent = Math.round(num * eased) + suffix;
+            el.textContent = fmt(num * eased);
             if (p < 1) requestAnimationFrame(tick);
           };
           requestAnimationFrame(tick);
@@ -68,6 +72,15 @@
       });
     }, { threshold: 0.6 });
     cio.observe(el);
+  });
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll(".faq-q").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      const open = item.classList.toggle("open");
+      btn.setAttribute("aria-expanded", String(open));
+    });
   });
 
   if (!isTouch && !reduce) {
