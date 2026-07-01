@@ -83,6 +83,69 @@
     });
   });
 
+  /* ---------- swipeable story ("le parcours") ---------- */
+  document.querySelectorAll(".story").forEach(story => {
+    const track = story.querySelector(".story-track");
+    if (!track) return;
+    const chapters = Array.from(track.children);
+    const dotsWrap = story.querySelector(".story-dots");
+    const prev = story.querySelector('[data-story="prev"]');
+    const next = story.querySelector('[data-story="next"]');
+    if (!chapters.length) return;
+
+    const dots = chapters.map((_, i) => {
+      const b = document.createElement("button");
+      b.className = "story-dot" + (i === 0 ? " active" : "");
+      b.setAttribute("aria-label", "Chapitre " + (i + 1));
+      b.addEventListener("click", () => scrollToIndex(i));
+      if (dotsWrap) dotsWrap.appendChild(b);
+      return b;
+    });
+
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 18;
+    const step = () => chapters[0].getBoundingClientRect().width + gap;
+    const currentIndex = () => Math.round(track.scrollLeft / step());
+    function scrollToIndex(i) {
+      i = Math.max(0, Math.min(chapters.length - 1, i));
+      track.scrollTo({ left: i * step(), behavior: reduce ? "auto" : "smooth" });
+    }
+    function update() {
+      const i = currentIndex();
+      dots.forEach((d, di) => d.classList.toggle("active", di === i));
+      if (prev) prev.disabled = i <= 0;
+      if (next) next.disabled = i >= chapters.length - 1;
+    }
+    if (prev) prev.addEventListener("click", () => scrollToIndex(currentIndex() - 1));
+    if (next) next.addEventListener("click", () => scrollToIndex(currentIndex() + 1));
+    track.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    update();
+
+    // drag-to-scroll (pointer / mouse); native touch handles itself
+    let down = false, startX = 0, startLeft = 0, moved = false;
+    track.addEventListener("pointerdown", (e) => {
+      if (e.pointerType === "touch") return;
+      down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+      track.classList.add("dragging");
+      try { track.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    track.addEventListener("pointermove", (e) => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = startLeft - dx;
+    });
+    const end = (e) => {
+      if (!down) return;
+      down = false; track.classList.remove("dragging");
+      try { track.releasePointerCapture(e.pointerId); } catch (_) {}
+      scrollToIndex(currentIndex());
+    };
+    track.addEventListener("pointerup", end);
+    track.addEventListener("pointercancel", end);
+    track.addEventListener("click", (e) => { if (moved) e.preventDefault(); }, true);
+  });
+
   if (!isTouch && !reduce) {
     /* ---------- card spotlight + 3D tilt ---------- */
     document.querySelectorAll(".card, .tilt").forEach(card => {

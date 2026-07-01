@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Hanken+Grotesk:wght@300;400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="/assets/styles.css?v=6" rel="stylesheet"/>
+<link href="/assets/styles.css?v=7" rel="stylesheet"/>
 <meta content="FR-IDF" name="geo.region"/><meta content="Paris" name="geo.placename"/><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -81,7 +81,6 @@
 <nav class="nav-links">
 <a aria-current="page" data-i18n="nav.home" href="/">Accueil</a>
 <a data-i18n="nav.services" href="/prestations">Prestations</a>
-<a data-i18n="nav.pricing" href="/formules">Formules</a>
 <a data-i18n="nav.work" href="/realisations">Réalisations</a>
 <a data-i18n="nav.contact" href="/contact">Contact</a>
 </nav>
@@ -105,7 +104,7 @@
 <p class="hero-tag" data-i18n="hero.tag">Le contenu de votre lieu, <b>géré de A à Z.</b></p>
 <div class="hero-cta">
 <a class="btn btn-primary" href="/contact"><span data-i18n="hero.cta1">Prendre contact</span><span class="arr">→</span></a>
-<a class="btn btn-ghost" data-i18n="hero.cta2" href="/formules">Voir l'offre</a>
+<a class="btn btn-ghost" data-i18n="hero.cta2" href="/prestations">Nos prestations</a>
 </div>
 </div>
 <span class="scroll-hint" data-i18n="hero.scroll">Défiler</span>
@@ -126,6 +125,32 @@
 <div class="wrap">
 <span class="eyebrow reveal" data-i18n="man.eyebrow">Le constat</span>
 <p class="reveal d1" data-i18n="man.body">Votre cuisine est excellente. Votre salle est pleine. <em>Et pourtant</em> votre Instagram dort, vos messages restent sans réponse et vos avis vous échappent.</p>
+</div>
+</section><section class="section">
+<div class="wrap story">
+<div class="section-head reveal" style="margin-bottom:0">
+<div class="story-head">
+<div>
+<span class="eyebrow" data-i18n="st.eyebrow">Le parcours</span>
+<h2 class="h-sec" data-i18n="st.title" style="margin-top:1.1rem">Votre histoire avec NOCTA.</h2>
+</div>
+<span class="story-hint"><span data-i18n="st.hint">Faites glisser</span><span aria-hidden="true" class="sw">→</span></span>
+</div>
+</div>
+<div class="story-track">
+<article class="chapter"><span class="idx" data-i18n="st.1.i">01</span><h3 data-i18n="st.1.t">Vous êtes débordé.</h3><p data-i18n="st.1.d">Le service tourne, la salle est pleine, et votre Instagram… attend. Vous n'avez ni le temps ni l'envie de vous en occuper à 23h.</p></article>
+<article class="chapter"><span class="idx" data-i18n="st.2.i">02</span><h3 data-i18n="st.2.t">Tout se joue avant la porte.</h3><p data-i18n="st.2.d">Aujourd'hui, on choisit un lieu sur un écran avant d'y mettre les pieds. Un feed mort, c'est une table vide que personne ne voit.</p></article>
+<article class="chapter"><span class="idx" data-i18n="st.3.i">03</span><h3 data-i18n="st.3.t">Vous déléguez tout.</h3><p data-i18n="st.3.d">Un appel, un audit, un accès. À partir de là, une équipe qui ne fait que ça s'occupe de l'intégralité de votre présence.</p></article>
+<article class="chapter"><span class="idx" data-i18n="st.4.i">04</span><h3 data-i18n="st.4.t">Pendant que vous gérez la salle…</h3><p data-i18n="st.4.d">…on crée, on publie, on répond, on soigne vos avis. Chaque jour, sans que vous ayez à y penser.</p></article>
+<article class="chapter"><span class="idx" data-i18n="st.5.i">05</span><h3 data-i18n="st.5.t">Et le monde revient.</h3><p data-i18n="st.5.d">Plus de vues, plus de messages, plus de réservations. Votre lieu se voit enfin aussi bien qu'il se vit.</p></article>
+</div>
+<div class="story-nav">
+<div class="story-dots"></div>
+<div class="story-arrows">
+<button aria-label="Précédent" class="story-arrow" data-story="prev">←</button>
+<button aria-label="Suivant" class="story-arrow" data-story="next">→</button>
+</div>
+</div>
 </div>
 </section>
 <!-- ============ FOCUS DEMO ============ -->
@@ -245,31 +270,6 @@
 </section>
 <hr class="rule"/>
 <!-- ============ PRICING TEASER ============ -->
-<section class="section">
-<div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow" data-i18n="price.eyebrow">L'offre</span>
-<h2 class="h-sec" data-i18n="price.title">Une offre. Tout est dedans.</h2>
-<p class="lead" data-i18n="price.lead" style="margin-top:1.2rem">Un forfait mensuel unique, tout compris. On prend en charge l'intégralité de votre présence en ligne.</p>
-</div>
-<div class="tiers" style="grid-template-columns:minmax(0,560px); justify-content:center"><div class="tier feature reveal" style="max-width:560px; margin-inline:auto">
-<span class="t-name" data-i18n="plan.name">L'offre NOCTA</span>
-<span class="t-desc" data-i18n="plan.desc">Le community management de votre lieu, de A à Z. Un seul forfait, tout est dedans.</span>
-<div class="price">1000€ <small data-i18n="price.month">/ mois</small></div>
-<ul>
-<li data-i18n="tier.1.f1">Audit &amp; ligne éditoriale</li>
-<li data-i18n="tier.1.f2">15 à 20 contenus / mois</li>
-<li data-i18n="tier.1.f3">Montage &amp; visuels</li>
-<li data-i18n="tier.1.f4">Stratégie de contenu</li>
-<li data-i18n="tier.1.f5">Calendrier de publication</li>
-<li data-i18n="tier.1.f6">Community management complet</li>
-<li data-i18n="tier.1.f7">Gestion Google &amp; avis</li>
-<li data-i18n="tier.1.f8">Pilotage publicitaire Meta &amp; TikTok</li>
-</ul>
-<a class="btn btn-primary" data-i18n="tier.cta" href="/contact">Prendre contact</a>
-</div></div>
-</div>
-</section>
 <!-- ============ WORK TEASER ============ -->
 <section class="section">
 <div class="wrap">
@@ -332,7 +332,6 @@
 <h4 data-i18n="foot.nav">Navigation</h4>
 <a data-i18n="nav.home" href="/">Accueil</a>
 <a data-i18n="nav.services" href="/prestations">Prestations</a>
-<a data-i18n="nav.pricing" href="/formules">Formules</a>
 <a data-i18n="nav.work" href="/realisations">Réalisations</a>
 <a data-i18n="nav.contact" href="/contact">Contact</a>
 </div>
@@ -351,7 +350,7 @@
 </div>
 </footer>
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
-<script src="/assets/i18n.js?v=6"></script>
-<script src="/assets/app.js?v=6"></script>
+<script src="/assets/i18n.js?v=7"></script>
+<script src="/assets/app.js?v=7"></script>
 </body>
 </html>

@@ -9,13 +9,22 @@
 
       "hero.kicker": "Community management · Paris & Île-de-France",
       "hero.tag": "Le contenu de votre lieu, <b>géré de A à Z.</b>",
-      "hero.cta1": "Prendre contact", "hero.cta2": "Voir l'offre", "hero.scroll": "Défiler",
+      "hero.cta1": "Prendre contact", "hero.cta2": "Nos prestations", "hero.scroll": "Défiler",
 
       "mq.1": "Restaurants", "mq.2": "Bars", "mq.3": "Clubs",
       "mq.4": "Coffee shops", "mq.5": "Caves & bistrots", "mq.6": "Rooftops",
 
       "man.eyebrow": "Le constat",
       "man.body": "Votre cuisine est excellente. Votre salle est pleine. <em>Et pourtant</em> votre Instagram dort, vos messages restent sans réponse et vos avis vous échappent.",
+      "st.eyebrow": "Le parcours",
+      "st.title": "Votre histoire avec NOCTA.",
+      "st.hint": "Faites glisser",
+      "st.1.i": "01", "st.1.t": "Vous êtes débordé.", "st.1.d": "Le service tourne, la salle est pleine, et votre Instagram… attend. Vous n'avez ni le temps ni l'envie de vous en occuper à 23h.",
+      "st.2.i": "02", "st.2.t": "Tout se joue avant la porte.", "st.2.d": "Aujourd'hui, on choisit un lieu sur un écran avant d'y mettre les pieds. Un feed mort, c'est une table vide que personne ne voit.",
+      "st.3.i": "03", "st.3.t": "Vous déléguez tout.", "st.3.d": "Un appel, un audit, un accès. À partir de là, une équipe qui ne fait que ça s'occupe de l'intégralité de votre présence.",
+      "st.4.i": "04", "st.4.t": "Pendant que vous gérez la salle…", "st.4.d": "…on crée, on publie, on répond, on soigne vos avis. Chaque jour, sans que vous ayez à y penser.",
+      "st.5.i": "05", "st.5.t": "Et le monde revient.", "st.5.d": "Plus de vues, plus de messages, plus de réservations. Votre lieu se voit enfin aussi bien qu'il se vit.",
+
 
       "focus.eyebrow": "La différence",
       "focus.title": "Elle se voit en trois secondes.",
@@ -147,13 +156,22 @@
 
       "hero.kicker": "Community management · Paris & Île-de-France",
       "hero.tag": "Your venue's content, <b>managed end to end.</b>",
-      "hero.cta1": "Get in touch", "hero.cta2": "See the offer", "hero.scroll": "Scroll",
+      "hero.cta1": "Get in touch", "hero.cta2": "Our services", "hero.scroll": "Scroll",
 
       "mq.1": "Restaurants", "mq.2": "Bars", "mq.3": "Clubs",
       "mq.4": "Coffee shops", "mq.5": "Wine bars", "mq.6": "Rooftops",
 
       "man.eyebrow": "The problem",
       "man.body": "Your food is excellent. Your room is full. <em>And yet</em> your Instagram is asleep, your messages go unanswered and your reviews slip away from you.",
+      "st.eyebrow": "The journey",
+      "st.title": "Your story with NOCTA.",
+      "st.hint": "Swipe",
+      "st.1.i": "01", "st.1.t": "You're swamped.", "st.1.d": "Service is running, the room is full, and your Instagram… waits. You've neither the time nor the will to deal with it at 11pm.",
+      "st.2.i": "02", "st.2.t": "It's decided before the door.", "st.2.d": "Today a venue is chosen on a screen before anyone walks in. A dead feed is an empty table no one sees.",
+      "st.3.i": "03", "st.3.t": "You hand it all over.", "st.3.d": "A call, an audit, an access. From there, a team that does only this takes over your entire presence.",
+      "st.4.i": "04", "st.4.t": "While you run the room…", "st.4.d": "…we create, publish, reply and tend your reviews. Every day, without you having to think about it.",
+      "st.5.i": "05", "st.5.t": "And the crowd comes back.", "st.5.d": "More views, more messages, more bookings. Your venue is finally seen as well as it's lived.",
+
 
       "focus.eyebrow": "The difference",
       "focus.title": "You see it in three seconds.",
