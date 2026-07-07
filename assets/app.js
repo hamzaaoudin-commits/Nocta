@@ -213,9 +213,9 @@
 
     // depth layers: count, z, point size, drift amplitude, fill factor (how far past frame edges)
     const defs = [
-      { count: 90,  z: -12, size: 4.4, drift: 0.9, fill: 1.6 },  // big, soft, far bokeh
-      { count: 140, z: -2,  size: 2.2, drift: 1.4, fill: 1.4 },  // mid
-      { count: 120, z: 7,   size: 1.1, drift: 2.1, fill: 1.25 }, // small, sharp, near
+      { count: 70,  z: -12, size: 4.2, drift: 0.9, fill: 1.6 },  // big, soft, far bokeh
+      { count: 110, z: -2,  size: 2.0, drift: 1.4, fill: 1.4 },  // mid
+      { count: 95,  z: 7,   size: 1.0, drift: 2.1, fill: 1.25 }, // small, sharp, near
     ];
 
     function frustum(z) {
@@ -237,7 +237,7 @@
       geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
       const mat = new THREE.PointsMaterial({
         size: d.size, map: tex, vertexColors: true, transparent: true,
-        blending: THREE.AdditiveBlending, depthWrite: false, opacity: 0.95
+        blending: THREE.AdditiveBlending, depthWrite: false, opacity: 0.8
       });
       const pts = new THREE.Points(geo, mat);
       pts.userData = { d, seed, base: new Float32Array(d.count * 3) };
@@ -309,4 +309,124 @@
     layers.forEach(place);
     loop();
   }
+})();
+
+
+/* ============================================================
+   SCROLLYTELLING ENGINE
+   ============================================================ */
+(function () {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- comparison slider (works regardless of motion prefs: user-driven) ---------- */
+  document.querySelectorAll(".cmp").forEach(cmp => {
+    const handle = cmp.querySelector(".cmp-handle");
+    let cut = 55;
+    const set = (v) => {
+      cut = Math.max(8, Math.min(92, v));
+      cmp.style.setProperty("--cut", cut + "%");
+      if (handle) handle.setAttribute("aria-valuenow", Math.round(cut));
+    };
+    set(cut);
+    const fromEvent = (e) => {
+      const r = cmp.getBoundingClientRect();
+      set(((e.clientX - r.left) / r.width) * 100);
+    };
+    let down = false;
+    cmp.addEventListener("pointerdown", (e) => { down = true; fromEvent(e); try{cmp.setPointerCapture(e.pointerId);}catch(_){}} );
+    cmp.addEventListener("pointermove", (e) => { if (down) fromEvent(e); });
+    const up = () => { down = false; };
+    cmp.addEventListener("pointerup", up); cmp.addEventListener("pointercancel", up);
+    if (handle) handle.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { set(cut - 4); e.preventDefault(); }
+      if (e.key === "ArrowRight") { set(cut + 4); e.preventDefault(); }
+    });
+  });
+
+  /* ---------- manifesto: split into words ---------- */
+  function splitWords() {
+    document.querySelectorAll('.manifesto [data-i18n="man.body"]').forEach(el => {
+      if (el.querySelector(".mword")) return;
+      const wrap = (node) => {
+        if (node.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          node.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            const s = document.createElement("span");
+            s.className = "mword"; s.textContent = part;
+            frag.appendChild(s);
+          });
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === 1) {
+          Array.from(node.childNodes).forEach(wrap);
+        }
+      };
+      Array.from(el.childNodes).forEach(wrap);
+    });
+  }
+  splitWords();
+  document.addEventListener("nocta:lang", splitWords);
+
+  if (reduce) return; // everything below is scroll-driven motion
+
+  /* ---------- rAF scroll loop ---------- */
+  const bar = document.querySelector(".scroll-progress span");
+  const hero = document.querySelector(".hero");
+  const heroWrap = hero ? hero.querySelector(".wrap") : null;
+  const heroCanvas = document.getElementById("bokeh");
+  const manifesto = document.querySelector(".manifesto");
+  const words = () => manifesto ? manifesto.querySelectorAll(".mword") : [];
+  const timelines = document.querySelectorAll(".timeline");
+
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(run); }
+  }
+  function clamp01(v){ return Math.max(0, Math.min(1, v)); }
+
+  function run() {
+    ticking = false;
+    const vh = window.innerHeight;
+    const doc = document.documentElement;
+
+    // progress bar
+    if (bar) {
+      const p = doc.scrollTop / Math.max(1, doc.scrollHeight - vh);
+      bar.style.width = (p * 100).toFixed(2) + "%";
+    }
+
+    // hero scroll-out: text drifts up + fades, bokeh dims
+    if (hero && heroWrap) {
+      const p = clamp01(doc.scrollTop / (vh * 0.9));
+      heroWrap.style.transform = "translateY(" + (-p * 60) + "px)";
+      heroWrap.style.opacity = String(1 - p * 1.05);
+      if (heroCanvas) heroCanvas.style.opacity = String(1 - p * 0.85);
+    }
+
+    // manifesto: light words up progressively
+    if (manifesto) {
+      const r = manifesto.getBoundingClientRect();
+      const p = clamp01((vh * 0.8 - r.top) / (r.height + vh * 0.35));
+      const ws = words();
+      const lit = Math.floor(p * ws.length);
+      ws.forEach((w, i) => w.classList.toggle("lit", i < lit));
+    }
+
+    // timelines: draw rail + activate steps
+    timelines.forEach(tl => {
+      const r = tl.getBoundingClientRect();
+      const p = clamp01((vh * 0.72 - r.top) / r.height);
+      const fill = tl.querySelector(".tl-fill");
+      if (fill) fill.style.height = (p * 100).toFixed(2) + "%";
+      tl.querySelectorAll(".tl-step").forEach(step => {
+        const sr = step.getBoundingClientRect();
+        step.classList.toggle("on", sr.top < vh * 0.78);
+      });
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  run();
 })();

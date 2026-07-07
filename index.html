@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Hanken+Grotesk:wght@300;400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="/assets/styles.css?v=7" rel="stylesheet"/>
+<link href="/assets/styles.css?v=8" rel="stylesheet"/>
 <meta content="FR-IDF" name="geo.region"/><meta content="Paris" name="geo.placename"/><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -68,7 +68,7 @@
     "description": "Community management mensuel tout compris pour les lieux d'hôtellerie-restauration"
   }
 }</script></head>
-<body>
+<body><div class="scroll-progress"><span></span></div>
 <!-- ============ HEADER ============ -->
 <header class="nav">
 <a class="brand" href="/">
@@ -97,7 +97,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
 <div class="hero-fallback"></div>
-<canvas id="bokeh"></canvas>
+<canvas id="bokeh"></canvas><div class="hero-scrim"></div>
 <div class="wrap">
 <span class="hero-kicker eyebrow"><span class="dot"></span><span data-i18n="hero.kicker">Community management · Paris &amp; Île-de-France</span></span>
 <h1 class="wordmark flicker">NOCTA</h1>
@@ -138,11 +138,44 @@
 </div>
 </div>
 <div class="story-track">
-<article class="chapter"><span class="idx" data-i18n="st.1.i">01</span><h3 data-i18n="st.1.t">Vous êtes débordé.</h3><p data-i18n="st.1.d">Le service tourne, la salle est pleine, et votre Instagram… attend. Vous n'avez ni le temps ni l'envie de vous en occuper à 23h.</p></article>
-<article class="chapter"><span class="idx" data-i18n="st.2.i">02</span><h3 data-i18n="st.2.t">Tout se joue avant la porte.</h3><p data-i18n="st.2.d">Aujourd'hui, on choisit un lieu sur un écran avant d'y mettre les pieds. Un feed mort, c'est une table vide que personne ne voit.</p></article>
-<article class="chapter"><span class="idx" data-i18n="st.3.i">03</span><h3 data-i18n="st.3.t">Vous déléguez tout.</h3><p data-i18n="st.3.d">Un appel, un audit, un accès. À partir de là, une équipe qui ne fait que ça s'occupe de l'intégralité de votre présence.</p></article>
-<article class="chapter"><span class="idx" data-i18n="st.4.i">04</span><h3 data-i18n="st.4.t">Pendant que vous gérez la salle…</h3><p data-i18n="st.4.d">…on crée, on publie, on répond, on soigne vos avis. Chaque jour, sans que vous ayez à y penser.</p></article>
-<article class="chapter"><span class="idx" data-i18n="st.5.i">05</span><h3 data-i18n="st.5.t">Et le monde revient.</h3><p data-i18n="st.5.d">Plus de vues, plus de messages, plus de réservations. Votre lieu se voit enfin aussi bien qu'il se vit.</p></article>
+<article class="chapter"><svg aria-hidden="true" class="art" viewbox="0 0 120 120">
+<rect class="st2" height="84" rx="9" width="44" x="38" y="18"></rect>
+<line class="st2" x1="52" x2="68" y1="26" y2="26"></line>
+<rect class="fl2" height="20" opacity=".35" rx="3" width="28" x="46" y="38"></rect>
+<line class="st2" opacity=".5" x1="46" x2="74" y1="68" y2="68"></line>
+<line class="st2" opacity=".35" x1="46" x2="66" y1="76" y2="76"></line>
+<path class="st" d="M84 26 q6 -6 3 -12 M92 34 q8 -7 4 -16 M99 44 q10 -8 5 -20" opacity=".9"></path>
+</svg><span class="idx" data-i18n="st.1.i">01</span><h3 data-i18n="st.1.t">Vous êtes débordé.</h3><p data-i18n="st.1.d">Le service tourne, la salle est pleine, et votre Instagram… attend. Vous n'avez ni le temps ni l'envie de vous en occuper à 23h.</p></article>
+<article class="chapter"><svg aria-hidden="true" class="art" viewbox="0 0 120 120">
+<rect class="st" height="36" rx="6" width="52" x="14" y="26"></rect>
+<circle class="fl" cx="40" cy="42" r="5"></circle>
+<path class="st" d="M40 47 v9 M33 60 q7 6 14 0"></path>
+<path class="st2" d="M84 32 v70 M84 32 h22 v70"></path>
+<circle class="fl2" cx="100" cy="70" r="3"></circle>
+<path class="st2" d="M66 84 h12 m4 0 h2" opacity=".6"></path>
+</svg><span class="idx" data-i18n="st.2.i">02</span><h3 data-i18n="st.2.t">Tout se joue avant la porte.</h3><p data-i18n="st.2.d">Aujourd'hui, on choisit un lieu sur un écran avant d'y mettre les pieds. Un feed mort, c'est une table vide que personne ne voit.</p></article>
+<article class="chapter"><svg aria-hidden="true" class="art" viewbox="0 0 120 120">
+<circle class="st" cx="42" cy="58" r="15"></circle>
+<path class="st" d="M42 50 v8 h6"></path>
+<path class="st2" d="M64 58 h26 m0 0 l-8 -8 m8 8 l-8 8"></path>
+<path class="st" d="M20 92 q22 -14 44 0" opacity=".6"></path>
+<circle class="fl2" cx="98" cy="34" r="4"></circle>
+<circle class="fl" cx="20" cy="30" r="3"></circle>
+</svg><span class="idx" data-i18n="st.3.i">03</span><h3 data-i18n="st.3.t">Vous déléguez tout.</h3><p data-i18n="st.3.d">Un appel, un audit, un accès. À partir de là, une équipe qui ne fait que ça s'occupe de l'intégralité de votre présence.</p></article>
+<article class="chapter"><svg aria-hidden="true" class="art" viewbox="0 0 120 120">
+<path class="st2" d="M74 22 a24 24 0 1 0 22 34 a19 19 0 1 1 -22 -34"></path>
+<circle class="st" cx="38" cy="80" r="12"></circle>
+<path class="st" d="M38 64 v6 M38 90 v6 M22 80 h6 M48 80 h6 M27 69 l4 4 M45 87 l4 4 M49 69 l-4 4 M31 87 l-4 4"></path>
+<circle class="fl" cx="90" cy="88" r="3"></circle>
+</svg><span class="idx" data-i18n="st.4.i">04</span><h3 data-i18n="st.4.t">Pendant que vous gérez la salle…</h3><p data-i18n="st.4.d">…on crée, on publie, on répond, on soigne vos avis. Chaque jour, sans que vous ayez à y penser.</p></article>
+<article class="chapter"><svg aria-hidden="true" class="art" viewbox="0 0 120 120">
+<path class="st" d="M20 96 L20 40 M20 96 L100 96"></path>
+<path class="st2" d="M28 84 L48 66 L64 74 L92 40"></path>
+<path class="fl2" d="M92 40 l10 -2 -4 10 z"></path>
+<circle class="fl" cx="48" cy="66" r="3.4"></circle>
+<circle class="fl" cx="64" cy="74" r="3.4"></circle>
+<circle class="fl2" cx="30" cy="30" r="3"></circle>
+</svg><span class="idx" data-i18n="st.5.i">05</span><h3 data-i18n="st.5.t">Et le monde revient.</h3><p data-i18n="st.5.d">Plus de vues, plus de messages, plus de réservations. Votre lieu se voit enfin aussi bien qu'il se vit.</p></article>
 </div>
 <div class="story-nav">
 <div class="story-dots"></div>
@@ -159,17 +192,19 @@
 <div class="section-head reveal">
 <span class="eyebrow" data-i18n="focus.eyebrow">La différence</span>
 <h2 class="h-sec" data-i18n="focus.title">Elle se voit en trois secondes.</h2>
-<p class="lead" data-i18n="focus.lead" style="margin-top:1.2rem">Le même lieu, deux façons de le gérer. À gauche, un compte laissé à l'abandon. À droite, un community manager qui tient la barre.</p>
+<p class="lead" data-i18n="focus.lead" style="margin-top:1.2rem">Le même lieu, deux réalités. Prenez la poignée et tirez : à gauche l'abandon, à droite NOCTA.</p>
 </div>
-<div class="focus-demo reveal d1">
-<div class="focus-pane bad rack">
+<div class="cmp reveal d1">
+<div class="cmp-base">
 <span class="tag" data-i18n="focus.bad.tag">Sans community manager</span>
 <span class="big" data-i18n="focus.bad.big">Publications au hasard, légendes bâclées, messages sans réponse, avis ignorés.</span>
 </div>
-<div class="focus-pane good rack">
+<div class="cmp-over">
 <span class="tag" data-i18n="focus.good.tag">Avec NOCTA</span>
 <span class="big" data-i18n="focus.good.big">Ligne éditoriale claire, calendrier tenu, communauté qui répond, réputation soignée.</span>
 </div>
+<div aria-label="Comparer" aria-valuemax="100" aria-valuemin="0" aria-valuenow="55" class="cmp-handle" role="slider" tabindex="0"></div>
+<span class="cmp-hint" data-i18n="cmp.hint">Glissez pour comparer</span>
 </div>
 </div>
 </section>
@@ -214,12 +249,7 @@
 <span class="eyebrow iris" data-i18n="steps.eyebrow">Comment ça marche</span>
 <h2 class="h-sec" data-i18n="steps.title">Un seul interlocuteur. Un mois entier de présence.</h2>
 </div>
-<div class="steps reveal d1">
-<div class="step"><span class="n">1</span><div><h3 data-i18n="steps.1.t">On vous écoute</h3><p data-i18n="steps.1.d">Un appel, un audit de vos réseaux. On comprend votre lieu, votre clientèle, ce qui vous distingue.</p></div></div>
-<div class="step"><span class="n">2</span><div><h3 data-i18n="steps.2.t">On planifie</h3><p data-i18n="steps.2.d">Ligne éditoriale, calendrier, rubriques. On pose une vraie stratégie, pas du post au coup par coup.</p></div></div>
-<div class="step"><span class="n">3</span><div><h3 data-i18n="steps.3.t">On crée</h3><p data-i18n="steps.3.d">Montage, visuels, légendes. On transforme votre matière en contenu qui donne envie.</p></div></div>
-<div class="step"><span class="n">4</span><div><h3 data-i18n="steps.4.t">On gère</h3><p data-i18n="steps.4.d">Publication, réponses, avis, pub. Vous regardez votre présence grandir. C'est tout.</p></div></div>
-</div>
+<div class="timeline reveal d1"><div class="tl-rail"><div class="tl-fill"></div></div><div class="tl-step"><div class="tl-dot">1</div><div><h3 data-i18n="steps.1.t">On vous écoute</h3><p data-i18n="steps.1.d">Un appel, un audit de vos réseaux. On comprend votre lieu, votre clientèle, ce qui vous distingue.</p></div></div><div class="tl-step"><div class="tl-dot">2</div><div><h3 data-i18n="steps.2.t">On planifie</h3><p data-i18n="steps.2.d">Ligne éditoriale, calendrier, rubriques. On pose une vraie stratégie, pas du post au coup par coup.</p></div></div><div class="tl-step"><div class="tl-dot">3</div><div><h3 data-i18n="steps.3.t">On crée</h3><p data-i18n="steps.3.d">Montage, visuels, légendes. On transforme votre matière en contenu qui donne envie.</p></div></div><div class="tl-step"><div class="tl-dot">4</div><div><h3 data-i18n="steps.4.t">On gère</h3><p data-i18n="steps.4.d">Publication, réponses, avis, pub. Vous regardez votre présence grandir. C'est tout.</p></div></div></div>
 </div>
 </section><section class="section">
 <div class="wrap">
@@ -350,7 +380,7 @@
 </div>
 </footer>
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
-<script src="/assets/i18n.js?v=7"></script>
-<script src="/assets/app.js?v=7"></script>
+<script src="/assets/i18n.js?v=8"></script>
+<script src="/assets/app.js?v=8"></script>
 </body>
 </html>

@@ -28,7 +28,8 @@
 
       "focus.eyebrow": "La différence",
       "focus.title": "Elle se voit en trois secondes.",
-      "focus.lead": "Le même lieu, deux façons de le gérer. À gauche, un compte laissé à l'abandon. À droite, un community manager qui tient la barre.",
+      "focus.lead": "Le même lieu, deux réalités. Prenez la poignée et tirez : à gauche l'abandon, à droite NOCTA.",
+      "cmp.hint": "Glissez pour comparer",
       "focus.bad.tag": "Sans community manager",
       "focus.bad.big": "Publications au hasard, légendes bâclées, messages sans réponse, avis ignorés.",
       "focus.good.tag": "Avec NOCTA",
@@ -175,7 +176,8 @@
 
       "focus.eyebrow": "The difference",
       "focus.title": "You see it in three seconds.",
-      "focus.lead": "Same venue, two ways of running it. On the left, an account left to drift. On the right, a community manager at the helm.",
+      "focus.lead": "Same venue, two realities. Grab the handle and pull: neglect on the left, NOCTA on the right.",
+      "cmp.hint": "Drag to compare",
       "focus.bad.tag": "Without a community manager",
       "focus.bad.big": "Random posts, sloppy captions, unanswered messages, ignored reviews.",
       "focus.good.tag": "With NOCTA",
@@ -315,6 +317,7 @@
     document.querySelectorAll("[data-lang-btn]").forEach(b => {
       b.setAttribute("aria-pressed", String(b.getAttribute("data-lang-btn") === lang));
     });
+    document.dispatchEvent(new CustomEvent("nocta:lang", { detail: { lang } }));
   }
   window.NOCTA_I18N = { setLang, getLang, apply, DICT };
   document.addEventListener("DOMContentLoaded", () => {
