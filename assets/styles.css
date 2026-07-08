@@ -513,3 +513,52 @@ h1,h2,h3{ font-family:var(--display); font-weight:700; line-height:1.02; letter-
 .chapter .art .st{ stroke:var(--coral); stroke-width:2.4; fill:none; stroke-linecap:round; stroke-linejoin:round; }
 .chapter .art .st2{ stroke:var(--iris-soft); stroke-width:2.4; fill:none; stroke-linecap:round; stroke-linejoin:round; }
 .chapter .art .fl{ fill:var(--coral); } .chapter .art .fl2{ fill:var(--iris-soft); }
+
+/* ============================================================
+   IMMERSIVE V2 — persistent 3D, pinned story, letterbox, wipes
+   ============================================================ */
+
+/* full-page fixed bokeh */
+#bokeh.bokeh-fixed{ position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+
+/* ambient color field that hue-shifts with scroll */
+.ambient{ position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.55; will-change:filter;
+  background:
+    radial-gradient(60% 45% at 18% 22%, rgba(255,93,87,.13), transparent 60%),
+    radial-gradient(55% 50% at 84% 78%, rgba(123,108,255,.15), transparent 60%); }
+
+/* cinema letterbox during the pinned story */
+.letterbox{ position:fixed; left:0; right:0; height:0; background:#050409; z-index:120; pointer-events:none; }
+.lb-top{ top:0; } .lb-bot{ bottom:0; }
+
+/* pinned horizontal story (activated by JS via .pin-on) */
+.story-pin.pin-on{ height:380vh; }
+.story-pin.pin-on .story-sticky{ position:sticky; top:0; height:100vh; display:flex; flex-direction:column;
+  justify-content:center; overflow:hidden; }
+.story-pin.pin-on .story-track{ overflow:visible; cursor:default; padding-bottom:0; scroll-snap-type:none;
+  will-change:transform; }
+.story-pin.pin-on .chapter{ flex:0 0 min(600px, 54vw); }
+.story-pin.pin-on .story-arrows{ display:none; }
+.story-pin.pin-on .story-hint .sw{ transform:rotate(90deg); animation:swishY 1.8s var(--ease) infinite; }
+@keyframes swishY{ 0%,100%{transform:rotate(90deg) translateX(0)} 50%{transform:rotate(90deg) translateX(6px)} }
+
+/* big chapter counter */
+.story-counter{ font-family:var(--mono); letter-spacing:.2em; color:var(--smoke-dim);
+  font-size:clamp(.9rem,2vw,1.1rem); display:flex; align-items:baseline; gap:.5rem; }
+.story-counter .sc-cur{ font-family:var(--display); font-weight:800; font-size:clamp(2rem,4.5vw,3.2rem);
+  line-height:1; letter-spacing:0;
+  background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+/* scroll-driven wipe blocks (fully JS-driven; no transition) */
+.wipe{ will-change:clip-path, transform, opacity; }
+
+/* chapter art gets its own drift inside pinned mode */
+.chapter .art{ will-change:transform; }
+
+@media (max-width:900px){
+  .story-pin.pin-on{ height:auto; }
+  .story-pin.pin-on .story-sticky{ position:static; height:auto; overflow:visible; }
+  .story-pin.pin-on .story-track{ overflow-x:auto; scroll-snap-type:x mandatory; cursor:grab; padding-bottom:1.2rem; }
+  .story-pin.pin-on .chapter{ flex:0 0 min(86%,600px); }
+  .story-pin.pin-on .story-arrows{ display:flex; }
+}

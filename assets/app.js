@@ -87,6 +87,12 @@
   document.querySelectorAll(".story").forEach(story => {
     const track = story.querySelector(".story-track");
     if (!track) return;
+    // desktop pinned mode: the scroll engine drives the track; skip swipe wiring
+    if (story.closest(".story-pin") &&
+        window.matchMedia("(min-width: 901px) and (hover: hover)").matches &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
     const chapters = Array.from(track.children);
     const dotsWrap = story.querySelector(".story-dots");
     const prev = story.querySelector('[data-story="prev"]');
@@ -198,6 +204,9 @@
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(58, 1, 0.1, 120);
     camera.position.z = 24;
+    scene.fog = new THREE.FogExp2(0x0a0910, 0.016);
+    let scrollP = 0, scrollT = 0;
+    window.NOCTA_BOKEH = { setScroll: (p) => { scrollT = Math.max(0, Math.min(1, p)); } };
 
     // soft circular sprite
     const c = document.createElement("canvas"); c.width = c.height = 128;
@@ -258,8 +267,7 @@
 
     let W = 0, H = 0;
     function resize() {
-      const host = canvas.parentElement || canvas;
-      const r = host.getBoundingClientRect();
+      const r = canvas.getBoundingClientRect();
       const w = Math.max(Math.round(r.width), 1), h = Math.max(Math.round(r.height), 1);
       if (w === W && h === H) return;
       W = w; H = h;
@@ -299,9 +307,12 @@
         pts.position.x = mx * (1.4 + li * 1.1);
         pts.position.y = -my * (1.0 + li * 0.8);
       });
+      scrollP += (scrollT - scrollP) * 0.06;
       camera.position.x += (mx * 1.4 - camera.position.x) * 0.04;
       camera.position.y += (-my * 1.0 - camera.position.y) * 0.04;
-      camera.lookAt(0, 0, 0);
+      camera.position.z = 24 - scrollP * 13;              // travelling through the field
+      camera.rotation.z = scrollP * 0.10;                 // slow cinematic roll
+      camera.lookAt(0, 0, camera.position.z - 10);
       renderer.render(scene, camera);
       requestAnimationFrame(loop);
     }
@@ -313,12 +324,12 @@
 
 
 /* ============================================================
-   SCROLLYTELLING ENGINE
+   SCROLLYTELLING ENGINE V2 — immersive, scroll-driven
    ============================================================ */
 (function () {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- comparison slider (works regardless of motion prefs: user-driven) ---------- */
+  /* ---------- comparison slider (user-driven; always on) ---------- */
   document.querySelectorAll(".cmp").forEach(cmp => {
     const handle = cmp.querySelector(".cmp-handle");
     let cut = 55;
@@ -333,7 +344,7 @@
       set(((e.clientX - r.left) / r.width) * 100);
     };
     let down = false;
-    cmp.addEventListener("pointerdown", (e) => { down = true; fromEvent(e); try{cmp.setPointerCapture(e.pointerId);}catch(_){}} );
+    cmp.addEventListener("pointerdown", (e) => { down = true; fromEvent(e); try{cmp.setPointerCapture(e.pointerId);}catch(_){} });
     cmp.addEventListener("pointermove", (e) => { if (down) fromEvent(e); });
     const up = () => { down = false; };
     cmp.addEventListener("pointerup", up); cmp.addEventListener("pointercancel", up);
@@ -343,7 +354,7 @@
     });
   });
 
-  /* ---------- manifesto: split into words ---------- */
+  /* ---------- manifesto word split (survives language switch) ---------- */
   function splitWords() {
     document.querySelectorAll('.manifesto [data-i18n="man.body"]').forEach(el => {
       if (el.querySelector(".mword")) return;
@@ -353,9 +364,9 @@
           node.textContent.split(/(\s+)/).forEach(part => {
             if (!part) return;
             if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
-            const s = document.createElement("span");
-            s.className = "mword"; s.textContent = part;
-            frag.appendChild(s);
+            const sp = document.createElement("span");
+            sp.className = "mword"; sp.textContent = part;
+            frag.appendChild(sp);
           });
           node.parentNode.replaceChild(frag, node);
         } else if (node.nodeType === 1) {
@@ -368,62 +379,155 @@
   splitWords();
   document.addEventListener("nocta:lang", splitWords);
 
-  if (reduce) return; // everything below is scroll-driven motion
+  if (reduce) return; // all motion below is scroll-driven
 
-  /* ---------- rAF scroll loop ---------- */
+  const clamp01 = (v) => Math.max(0, Math.min(1, v));
+  const vhOf = () => window.innerHeight;
+
+  /* ---------- collect actors ---------- */
   const bar = document.querySelector(".scroll-progress span");
+  const ambient = document.querySelector(".ambient");
+  const lbTop = document.querySelector(".lb-top");
+  const lbBot = document.querySelector(".lb-bot");
   const hero = document.querySelector(".hero");
   const heroWrap = hero ? hero.querySelector(".wrap") : null;
+  const wordmark = hero ? hero.querySelector(".wordmark") : null;
   const heroCanvas = document.getElementById("bokeh");
   const manifesto = document.querySelector(".manifesto");
-  const words = () => manifesto ? manifesto.querySelectorAll(".mword") : [];
   const timelines = document.querySelectorAll(".timeline");
+  const plx = Array.from(document.querySelectorAll("[data-plx]"));
+  const wipes = Array.from(document.querySelectorAll(".wipe"));
+  const marquees = Array.from(document.querySelectorAll(".marquee-track"));
+  marquees.forEach(t => { t.style.animation = "none"; t.__off = 0; });
+
+  /* pinned story */
+  const pin = document.querySelector(".story-pin");
+  const pinnable = pin && window.matchMedia("(min-width: 901px) and (hover: hover)").matches;
+  let pinTrack = null, pinDots = [], pinCur = null, pinChapters = [];
+  if (pinnable) {
+    pin.classList.add("pin-on");
+    pinTrack = pin.querySelector(".story-track");
+    pinChapters = Array.from(pinTrack.children);
+    pinCur = pin.querySelector(".sc-cur");
+    const dotsWrap = pin.querySelector(".story-dots");
+    if (dotsWrap && !dotsWrap.children.length) {
+      pinChapters.forEach((_, i) => {
+        const b = document.createElement("button");
+        b.className = "story-dot" + (i === 0 ? " active" : "");
+        b.setAttribute("aria-label", "Chapitre " + (i + 1));
+        b.addEventListener("click", () => {
+          const max = pin.offsetHeight - vhOf();
+          const y = pin.getBoundingClientRect().top + window.scrollY + (i / (pinChapters.length - 1)) * max;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        });
+        dotsWrap.appendChild(b);
+      });
+    }
+    pinDots = Array.from(pin.querySelectorAll(".story-dot"));
+  }
+
+  /* ---------- scroll velocity ---------- */
+  let lastY = window.scrollY, vel = 0;
 
   let ticking = false;
-  function onScroll() {
-    if (!ticking) { ticking = true; requestAnimationFrame(run); }
-  }
-  function clamp01(v){ return Math.max(0, Math.min(1, v)); }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(run); } }
 
   function run() {
     ticking = false;
-    const vh = window.innerHeight;
+    const vh = vhOf();
     const doc = document.documentElement;
+    const y = window.scrollY;
+    vel += ((y - lastY) - vel) * 0.15;
+    lastY = y;
 
-    // progress bar
-    if (bar) {
-      const p = doc.scrollTop / Math.max(1, doc.scrollHeight - vh);
-      bar.style.width = (p * 100).toFixed(2) + "%";
-    }
+    const total = Math.max(1, doc.scrollHeight - vh);
+    const globalP = clamp01(y / total);
 
-    // hero scroll-out: text drifts up + fades, bokeh dims
+    // progress bar + ambient hue drift + 3D camera travel
+    if (bar) bar.style.width = (globalP * 100).toFixed(2) + "%";
+    if (ambient) ambient.style.filter = "hue-rotate(" + (globalP * 55).toFixed(1) + "deg)";
+    if (window.NOCTA_BOKEH) window.NOCTA_BOKEH.setScroll(globalP);
+
+    // hero: camera push — text drifts up/fades, wordmark grows, bokeh dims to ambient level
     if (hero && heroWrap) {
-      const p = clamp01(doc.scrollTop / (vh * 0.9));
-      heroWrap.style.transform = "translateY(" + (-p * 60) + "px)";
+      const p = clamp01(y / (vh * 0.9));
+      heroWrap.style.transform = "translateY(" + (-p * 70) + "px)";
       heroWrap.style.opacity = String(1 - p * 1.05);
-      if (heroCanvas) heroCanvas.style.opacity = String(1 - p * 0.85);
+      if (wordmark) wordmark.style.transform = "scale(" + (1 + p * 0.18) + ")";
+      if (heroCanvas) heroCanvas.style.opacity = String(1 - p * 0.5);
     }
 
-    // manifesto: light words up progressively
+    // manifesto word lighting
     if (manifesto) {
       const r = manifesto.getBoundingClientRect();
       const p = clamp01((vh * 0.8 - r.top) / (r.height + vh * 0.35));
-      const ws = words();
+      const ws = manifesto.querySelectorAll(".mword");
       const lit = Math.floor(p * ws.length);
       ws.forEach((w, i) => w.classList.toggle("lit", i < lit));
     }
 
-    // timelines: draw rail + activate steps
+    // pinned story: horizontal travel + counter + dots + letterbox + art drift
+    if (pinnable && pinTrack) {
+      const rp = pin.getBoundingClientRect();
+      const span = pin.offsetHeight - vh;
+      const p = clamp01(-rp.top / Math.max(1, span));
+      const maxX = pinTrack.scrollWidth - pinTrack.clientWidth;
+      pinTrack.style.transform = "translateX(" + (-p * maxX).toFixed(1) + "px)";
+      const idx = Math.round(p * (pinChapters.length - 1));
+      if (pinCur) pinCur.textContent = String(idx + 1).padStart(2, "0");
+      pinDots.forEach((d, di) => d.classList.toggle("active", di === idx));
+      pinChapters.forEach((ch, ci) => {
+        const art = ch.querySelector(".art");
+        if (art) art.style.transform = "translateX(" + ((p * (pinChapters.length - 1) - ci) * -26) + "px)";
+      });
+      // letterbox in while the story is on stage
+      const inP = clamp01(-rp.top / (vh * 0.6));
+      const outP = clamp01((rp.bottom - vh) / (vh * 0.6));
+      const lb = Math.min(inP, outP) * 5;
+      if (lbTop) lbTop.style.height = lb + "vh";
+      if (lbBot) lbBot.style.height = lb + "vh";
+    }
+
+    // timelines: draw + activate
     timelines.forEach(tl => {
       const r = tl.getBoundingClientRect();
       const p = clamp01((vh * 0.72 - r.top) / r.height);
       const fill = tl.querySelector(".tl-fill");
       if (fill) fill.style.height = (p * 100).toFixed(2) + "%";
       tl.querySelectorAll(".tl-step").forEach(step => {
-        const sr = step.getBoundingClientRect();
-        step.classList.toggle("on", sr.top < vh * 0.78);
+        step.classList.toggle("on", step.getBoundingClientRect().top < vh * 0.78);
       });
     });
+
+    // parallax layers
+    plx.forEach(el => {
+      const sp = parseFloat(el.getAttribute("data-plx")) || 0.06;
+      const r = el.getBoundingClientRect();
+      const d = (r.top + r.height / 2) - vh / 2;
+      el.style.transform = "translateY(" + (-d * sp).toFixed(1) + "px)";
+    });
+
+    // scroll-driven wipes: clip + rise mapped to each block's own progress
+    wipes.forEach(el => {
+      const r = el.getBoundingClientRect();
+      const p = clamp01((vh * 0.92 - r.top) / (vh * 0.55));
+      const inset = ((1 - p) * 16).toFixed(2);
+      el.style.clipPath = "inset(" + inset + "% 0% 0% 0% round 20px)";
+      el.style.transform = "translateY(" + ((1 - p) * 44).toFixed(1) + "px)";
+      el.style.opacity = String(0.2 + p * 0.8);
+    });
+
+    // marquee: base drift + scroll-velocity boost
+    marquees.forEach(t => {
+      const half = t.scrollWidth / 2;
+      t.__off -= 0.6 + Math.min(Math.abs(vel) * 0.10, 4);
+      if (-t.__off >= half) t.__off += half;
+      if (t.__off > 0) t.__off -= half;
+      t.style.transform = "translateX(" + t.__off.toFixed(1) + "px)";
+    });
+
+    // marquee is continuous — keep the loop alive while anything moves
+    if (marquees.length || Math.abs(vel) > 0.1) { ticking = true; requestAnimationFrame(run); }
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
