@@ -200,7 +200,7 @@
     if (!THREE) { canvas.style.display = "none"; return; }
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(58, 1, 0.1, 120);
     camera.position.z = 24;
@@ -397,8 +397,6 @@
   const timelines = document.querySelectorAll(".timeline");
   const plx = Array.from(document.querySelectorAll("[data-plx]"));
   const wipes = Array.from(document.querySelectorAll(".wipe"));
-  const marquees = Array.from(document.querySelectorAll(".marquee-track"));
-  marquees.forEach(t => { t.style.animation = "none"; t.__off = 0; });
 
   /* pinned story */
   const pin = document.querySelector(".story-pin");
@@ -426,111 +424,96 @@
     pinDots = Array.from(pin.querySelectorAll(".story-dot"));
   }
 
-  /* ---------- scroll velocity ---------- */
-  let lastY = window.scrollY, vel = 0;
+  /* ---------- geometry cache (recomputed on resize, not every frame) ---------- */
+  let geo = {};
+  function measure() {
+    const y = window.scrollY, vh = vhOf();
+    const abs = (el) => { const r = el.getBoundingClientRect(); return { top: r.top + y, h: r.height }; };
+    geo = { vh, docH: document.documentElement.scrollHeight };
+    if (manifesto) geo.man = abs(manifesto);
+    if (pinnable && pin) { const g = abs(pin); geo.pin = g; geo.pinMaxX = pinTrack.scrollWidth - pinTrack.clientWidth; }
+    geo.tls = timelines.length ? Array.from(timelines).map(tl => ({ el: tl, ...abs(tl), fill: tl.querySelector(".tl-fill"),
+      steps: Array.from(tl.querySelectorAll(".tl-step")).map(s => ({ el: s, ...abs(s) })) })) : [];
+    geo.plx = plx.map(el => ({ el, ...abs(el), sp: parseFloat(el.getAttribute("data-plx")) || 0.06 }));
+    geo.wipes = wipes.map(el => ({ el, ...abs(el) }));
+  }
 
   let ticking = false;
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(run); } }
 
   function run() {
     ticking = false;
-    const vh = vhOf();
-    const doc = document.documentElement;
-    const y = window.scrollY;
-    vel += ((y - lastY) - vel) * 0.15;
-    lastY = y;
-
-    const total = Math.max(1, doc.scrollHeight - vh);
+    const vh = geo.vh, y = window.scrollY;
+    const total = Math.max(1, geo.docH - vh);
     const globalP = clamp01(y / total);
 
-    // progress bar + ambient hue drift + 3D camera travel
-    if (bar) bar.style.width = (globalP * 100).toFixed(2) + "%";
-    if (ambient) ambient.style.filter = "hue-rotate(" + (globalP * 55).toFixed(1) + "deg)";
+    if (bar) bar.style.width = (globalP * 100).toFixed(1) + "%";
+    if (ambient) ambient.style.filter = "hue-rotate(" + (globalP * 50).toFixed(1) + "deg)";
     if (window.NOCTA_BOKEH) window.NOCTA_BOKEH.setScroll(globalP);
 
-    // hero: camera push — text drifts up/fades, wordmark grows, bokeh dims to ambient level
-    if (hero && heroWrap) {
+    // hero push
+    if (heroWrap) {
       const p = clamp01(y / (vh * 0.9));
-      heroWrap.style.transform = "translateY(" + (-p * 70) + "px)";
-      heroWrap.style.opacity = String(1 - p * 1.05);
-      if (wordmark) wordmark.style.transform = "scale(" + (1 + p * 0.18) + ")";
-      if (heroCanvas) heroCanvas.style.opacity = String(1 - p * 0.5);
+      heroWrap.style.transform = "translate3d(0," + (-p * 60).toFixed(1) + "px,0)";
+      heroWrap.style.opacity = (1 - p * 1.05).toFixed(3);
+      if (wordmark) wordmark.style.transform = "scale(" + (1 + p * 0.14).toFixed(3) + ")";
+      if (heroCanvas) heroCanvas.style.opacity = (1 - p * 0.45).toFixed(3);
     }
 
-    // manifesto word lighting
-    if (manifesto) {
-      const r = manifesto.getBoundingClientRect();
-      const p = clamp01((vh * 0.8 - r.top) / (r.height + vh * 0.35));
+    // manifesto words
+    if (geo.man) {
+      const top = geo.man.top - y;
+      const p = clamp01((vh * 0.8 - top) / (geo.man.h + vh * 0.35));
       const ws = manifesto.querySelectorAll(".mword");
       const lit = Math.floor(p * ws.length);
-      ws.forEach((w, i) => w.classList.toggle("lit", i < lit));
+      if (manifesto.__lit !== lit) { ws.forEach((w, i) => w.classList.toggle("lit", i < lit)); manifesto.__lit = lit; }
     }
 
-    // pinned story: horizontal travel + counter + dots + letterbox + art drift
-    if (pinnable && pinTrack) {
-      const rp = pin.getBoundingClientRect();
-      const span = pin.offsetHeight - vh;
-      const p = clamp01(-rp.top / Math.max(1, span));
-      const maxX = pinTrack.scrollWidth - pinTrack.clientWidth;
-      pinTrack.style.transform = "translateX(" + (-p * maxX).toFixed(1) + "px)";
+    // pinned horizontal story
+    if (geo.pin) {
+      const top = geo.pin.top - y;
+      const span = geo.pin.h - vh;
+      const p = clamp01(-top / Math.max(1, span));
+      pinTrack.style.transform = "translate3d(" + (-p * geo.pinMaxX).toFixed(1) + "px,0,0)";
       const idx = Math.round(p * (pinChapters.length - 1));
-      if (pinCur) pinCur.textContent = String(idx + 1).padStart(2, "0");
-      pinDots.forEach((d, di) => d.classList.toggle("active", di === idx));
-      pinChapters.forEach((ch, ci) => {
-        const art = ch.querySelector(".art");
-        if (art) art.style.transform = "translateX(" + ((p * (pinChapters.length - 1) - ci) * -26) + "px)";
-      });
-      // letterbox in while the story is on stage
-      const inP = clamp01(-rp.top / (vh * 0.6));
-      const outP = clamp01((rp.bottom - vh) / (vh * 0.6));
-      const lb = Math.min(inP, outP) * 5;
+      if (pin.__idx !== idx) {
+        if (pinCur) pinCur.textContent = String(idx + 1).padStart(2, "0");
+        pinDots.forEach((d, di) => d.classList.toggle("active", di === idx));
+        pin.__idx = idx;
+      }
+      const lb = (Math.min(clamp01(-top / (vh * 0.6)), clamp01((top + geo.pin.h - vh) / (vh * 0.6))) * 4.5).toFixed(2);
       if (lbTop) lbTop.style.height = lb + "vh";
       if (lbBot) lbBot.style.height = lb + "vh";
     }
 
-    // timelines: draw + activate
-    timelines.forEach(tl => {
-      const r = tl.getBoundingClientRect();
-      const p = clamp01((vh * 0.72 - r.top) / r.height);
-      const fill = tl.querySelector(".tl-fill");
-      if (fill) fill.style.height = (p * 100).toFixed(2) + "%";
-      tl.querySelectorAll(".tl-step").forEach(step => {
-        step.classList.toggle("on", step.getBoundingClientRect().top < vh * 0.78);
-      });
-    });
+    // timelines
+    for (const tl of geo.tls) {
+      const top = tl.top - y;
+      const p = clamp01((vh * 0.72 - top) / tl.h);
+      if (tl.fill) tl.fill.style.height = (p * 100).toFixed(1) + "%";
+      for (const st of tl.steps) st.el.classList.toggle("on", (st.top - y) < vh * 0.78);
+    }
 
-    // parallax layers
-    plx.forEach(el => {
-      const sp = parseFloat(el.getAttribute("data-plx")) || 0.06;
-      const r = el.getBoundingClientRect();
-      const d = (r.top + r.height / 2) - vh / 2;
-      el.style.transform = "translateY(" + (-d * sp).toFixed(1) + "px)";
-    });
+    // parallax
+    for (const it of geo.plx) {
+      const center = (it.top - y) + it.h / 2 - vh / 2;
+      it.el.style.transform = "translate3d(0," + (-center * it.sp).toFixed(1) + "px,0)";
+    }
 
-    // scroll-driven wipes: clip + rise mapped to each block's own progress
-    wipes.forEach(el => {
-      const r = el.getBoundingClientRect();
-      const p = clamp01((vh * 0.92 - r.top) / (vh * 0.55));
-      const inset = ((1 - p) * 16).toFixed(2);
-      el.style.clipPath = "inset(" + inset + "% 0% 0% 0% round 20px)";
-      el.style.transform = "translateY(" + ((1 - p) * 44).toFixed(1) + "px)";
-      el.style.opacity = String(0.2 + p * 0.8);
-    });
-
-    // marquee: base drift + scroll-velocity boost
-    marquees.forEach(t => {
-      const half = t.scrollWidth / 2;
-      t.__off -= 0.6 + Math.min(Math.abs(vel) * 0.10, 4);
-      if (-t.__off >= half) t.__off += half;
-      if (t.__off > 0) t.__off -= half;
-      t.style.transform = "translateX(" + t.__off.toFixed(1) + "px)";
-    });
-
-    // marquee is continuous — keep the loop alive while anything moves
-    if (marquees.length || Math.abs(vel) > 0.1) { ticking = true; requestAnimationFrame(run); }
+    // wipes
+    for (const it of geo.wipes) {
+      const top = it.top - y;
+      const p = clamp01((vh * 0.94 - top) / (vh * 0.5));
+      it.el.style.clipPath = "inset(" + ((1 - p) * 14).toFixed(1) + "% 0 0 0 round 20px)";
+      it.el.style.transform = "translate3d(0," + ((1 - p) * 40).toFixed(1) + "px,0)";
+      it.el.style.opacity = (0.25 + p * 0.75).toFixed(3);
+    }
   }
 
+  let rt;
+  function onResize() { clearTimeout(rt); rt = setTimeout(() => { measure(); onScroll(); }, 150); }
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll, { passive: true });
-  run();
+  window.addEventListener("resize", onResize, { passive: true });
+  window.addEventListener("load", () => { measure(); onScroll(); });
+  measure(); run();
 })();
