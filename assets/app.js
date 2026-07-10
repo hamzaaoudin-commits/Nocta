@@ -334,7 +334,7 @@
     const handle = cmp.querySelector(".cmp-handle");
     let cut = 55;
     const set = (v) => {
-      cut = Math.max(8, Math.min(92, v));
+      cut = Math.max(0, Math.min(100, v));
       cmp.style.setProperty("--cut", cut + "%");
       if (handle) handle.setAttribute("aria-valuenow", Math.round(cut));
     };
@@ -398,6 +398,15 @@
   const plx = Array.from(document.querySelectorAll("[data-plx]"));
   const wipes = Array.from(document.querySelectorAll(".wipe"));
 
+  /* immersive venue tour */
+  const tourPin = document.querySelector(".tour-pin");
+  let tourScenes = [], tourFill = null;
+  if (tourPin) {
+    tourPin.classList.add("tour-on");
+    tourScenes = Array.from(tourPin.querySelectorAll(".tour-scene"));
+    tourFill = tourPin.querySelector(".tour-progress span");
+  }
+
   /* pinned story */
   const pin = document.querySelector(".story-pin");
   const pinnable = pin && window.matchMedia("(min-width: 901px) and (hover: hover)").matches;
@@ -435,6 +444,11 @@
     geo.tls = timelines.length ? Array.from(timelines).map(tl => ({ el: tl, ...abs(tl), fill: tl.querySelector(".tl-fill"),
       steps: Array.from(tl.querySelectorAll(".tl-step")).map(s => ({ el: s, ...abs(s) })) })) : [];
     geo.plx = plx.map(el => ({ el, ...abs(el), sp: parseFloat(el.getAttribute("data-plx")) || 0.06 }));
+    if (tourPin) { geo.tour = abs(tourPin); }
+    if (pinnable && pinTrack) {
+      geo.viewW = pinTrack.parentElement.clientWidth;
+      geo.chaps = pinChapters.map(ch => ({ el: ch, cx: ch.offsetLeft + ch.offsetWidth / 2 }));
+    }
     geo.wipes = wipes.map(el => ({ el, ...abs(el) }));
   }
 
@@ -463,7 +477,7 @@
     // manifesto words
     if (geo.man) {
       const top = geo.man.top - y;
-      const p = clamp01((vh * 0.8 - top) / (geo.man.h + vh * 0.35));
+      const p = clamp01((vh * 0.85 - top) / (geo.man.h * 0.7 + vh * 0.05));
       const ws = manifesto.querySelectorAll(".mword");
       const lit = Math.floor(p * ws.length);
       if (manifesto.__lit !== lit) { ws.forEach((w, i) => w.classList.toggle("lit", i < lit)); manifesto.__lit = lit; }
@@ -481,7 +495,40 @@
         pinDots.forEach((d, di) => d.classList.toggle("active", di === idx));
         pin.__idx = idx;
       }
-      const lb = (Math.min(clamp01(-top / (vh * 0.6)), clamp01((top + geo.pin.h - vh) / (vh * 0.6))) * 4.5).toFixed(2);
+      // depth focus: active chapter sharp, neighbours recede
+      if (geo.chaps) {
+        const tx = p * geo.pinMaxX, mid = geo.viewW / 2;
+        for (const c of geo.chaps) {
+          const d = Math.abs(c.cx - tx - mid) / geo.viewW;
+          c.el.style.transform = "scale(" + (1 - Math.min(0.07, d * 0.14)).toFixed(3) + ")";
+          c.el.style.opacity = (1 - Math.min(0.55, d * 0.85)).toFixed(3);
+        }
+      }
+      geo.__lbStory = Math.min(clamp01(-top / (vh * 0.6)), clamp01((top + geo.pin.h - vh) / (vh * 0.6)));
+    }
+
+    // venue tour: walk through the rooms
+    if (geo.tour && tourScenes.length) {
+      const top = geo.tour.top - y;
+      const span = Math.max(1, geo.tour.h - vh);
+      const p = clamp01(-top / span);
+      const f = p * (tourScenes.length - 1);
+      tourScenes.forEach((sc, i) => {
+        const d = f - i;
+        const ad = Math.abs(d);
+        sc.style.opacity = Math.max(0, 1 - ad * 1.35).toFixed(3);
+        sc.style.transform = "translate3d(0," + (-d * 7).toFixed(2) + "vh,0) scale(" + (1 + Math.max(0, 0.055 - ad * 0.11)).toFixed(3) + ")";
+        sc.style.zIndex = String(20 - Math.round(ad * 10));
+        const bg = sc.querySelector(".ts-bg");
+        if (bg) bg.style.transform = "scale(" + (1.06 + d * 0.05).toFixed(3) + ")";
+      });
+      if (tourFill) tourFill.style.height = (p * 100).toFixed(1) + "%";
+      geo.__lbTour = Math.min(clamp01(-top / (vh * 0.6)), clamp01((top + geo.tour.h - vh) / (vh * 0.6)));
+    }
+
+    // shared cinema letterbox (story or tour on stage)
+    {
+      const lb = (Math.max(geo.__lbStory || 0, geo.__lbTour || 0) * 4.5).toFixed(2);
       if (lbTop) lbTop.style.height = lb + "vh";
       if (lbBot) lbBot.style.height = lb + "vh";
     }

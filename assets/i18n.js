@@ -5,11 +5,11 @@
   const DICT = {
     fr: {
       "nav.home": "Accueil", "nav.services": "Prestations", "nav.pricing": "Formules",
-      "nav.work": "Réalisations", "nav.contact": "Contact", "nav.cta": "Audit gratuit",
+      "nav.work": "Réalisations", "nav.contact": "Contact", "nav.cta": "Prendre contact",
 
       "hero.kicker": "Community management · Paris & Île-de-France",
       "hero.tag": "Le contenu de votre lieu, <b>géré de A à Z.</b>",
-      "hero.cta1": "Demander un audit gratuit", "hero.cta2": "Nos prestations", "hero.scroll": "Défiler",
+      "hero.cta1": "Prendre contact", "hero.cta2": "Nos prestations", "hero.scroll": "Défiler",
 
       "mq.1": "Restaurants", "mq.2": "Bars", "mq.3": "Clubs",
       "mq.4": "Coffee shops", "mq.5": "Caves & bistrots", "mq.6": "Rooftops",
@@ -21,7 +21,7 @@
       "st.hint": "Faites glisser",
       "st.1.i": "01", "st.1.t": "Vous êtes débordé.", "st.1.d": "Le service tourne, la salle est pleine, et votre Instagram… attend. Vous n'avez ni le temps ni l'envie de vous en occuper à 23h.",
       "st.2.i": "02", "st.2.t": "Tout se joue avant la porte.", "st.2.d": "Aujourd'hui, on choisit un lieu sur un écran avant d'y mettre les pieds. Un feed mort, c'est une table vide que personne ne voit.",
-      "st.3.i": "03", "st.3.t": "Vous déléguez tout.", "st.3.d": "Un appel, un audit, un accès. À partir de là, une équipe qui ne fait que ça s'occupe de l'intégralité de votre présence.",
+      "st.3.i": "03", "st.3.t": "Vous déléguez tout.", "st.3.d": "Un appel, une visite, un accès. À partir de là, une équipe qui ne fait que ça s'occupe de l'intégralité de votre présence.",
       "st.4.i": "04", "st.4.t": "Pendant que vous gérez la salle…", "st.4.d": "…on crée, on publie, on répond, on soigne vos avis. Chaque jour, sans que vous ayez à y penser.",
       "st.5.i": "05", "st.5.t": "Et le monde revient.", "st.5.d": "Plus de vues, plus de messages, plus de réservations. Votre lieu se voit enfin aussi bien qu'il se vit.",
 
@@ -46,7 +46,7 @@
 
       "steps.eyebrow": "Comment ça marche",
       "steps.title": "Un seul interlocuteur. Un mois entier de présence.",
-      "steps.1.t": "On vous écoute", "steps.1.d": "Un appel, un audit de vos réseaux. On comprend votre lieu, votre clientèle, ce qui vous distingue.",
+      "steps.1.t": "On vous écoute", "steps.1.d": "Un appel, un tour de vos réseaux. On comprend votre lieu, votre clientèle, ce qui vous distingue.",
       "steps.2.t": "On planifie", "steps.2.d": "Ligne éditoriale, calendrier, rubriques. On pose une vraie stratégie, pas du post au coup par coup.",
       "steps.3.t": "On crée", "steps.3.d": "Montage, visuels, légendes. On transforme votre matière en contenu qui donne envie.",
       "steps.4.t": "On gère", "steps.4.d": "Publication, réponses, avis, pub. Vous regardez votre présence grandir. C'est tout.",
@@ -61,7 +61,7 @@
       "plan.name": "L'offre NOCTA",
       "plan.desc": "Le community management de votre lieu, de A à Z. Un seul forfait, tout est dedans.",
       "tier.1.f1": "Audit & ligne éditoriale", "tier.1.f2": "15 à 20 contenus / mois", "tier.1.f3": "Montage & visuels", "tier.1.f4": "Stratégie de contenu", "tier.1.f5": "Calendrier de publication", "tier.1.f6": "Community management complet", "tier.1.f7": "Gestion Google & avis", "tier.1.f8": "Pilotage publicitaire Meta & TikTok",
-      "tier.cta": "Demander un audit gratuit",
+      "tier.cta": "Prendre contact",
       "tier.note": "Budget média (ce que vous investissez en pub) en sus, défini avec vous.",
 
       "work.eyebrow": "Réalisations",
@@ -75,6 +75,15 @@
       "work.r6.k": "Cave à vin", "work.r6.t": "À la bougie",
       "work.disclaimer": "Visuels d'intention — exemples de direction, pas des clients réels.",
 
+      "tour.eyebrow": "La tournée",
+      "tour.title": "Entrez dans les lieux qu'on anime.",
+      "tour.hint": "Continuez à défiler",
+      "tour.cta": "Voir les réalisations",
+      "tour.1.line": "19h30. L'heure dorée traverse la salle — le plat du soir part en story avant le premier couvert.",
+      "tour.2.line": "23h50. Le shaker claque, les néons vibrent — le reel de la signature tourne déjà.",
+      "tour.3.line": "2h10. La basse fait trembler le plafond — demain, la file d'attente aura vu la vidéo.",
+      "tour.4.line": "8h05. Latte art, lumière douce — le quartier sait déjà où prendre son premier café.",
+      "tour.out": "Quatre univers. Une seule main.",
       "ct.eyebrow": "Ce qu'on produit",
       "ct.title": "Tous les formats qui font vivre un lieu.",
       "ct.lead": "À partir de votre matière — vos plats, votre équipe, vos soirées — on décline le contenu sur tous les formats qui comptent.",
@@ -123,16 +132,16 @@
 
       "cta.eyebrow": "Prêt à déléguer ?",
       "cta.title": "On s'occupe de tout.",
-      "cta.lead": "Demandez votre audit gratuit : on analyse vos réseaux et on vous montre concrètement ce que votre présence peut devenir en un mois.",
-      "cta.btn": "Demander mon audit gratuit",
+      "cta.lead": "Dites-nous où vous en êtes. On vous montre concrètement ce que votre présence peut devenir en un mois.",
+      "cta.btn": "Prendre contact",
 
       "contact.eyebrow": "Parlons-en",
       "contact.title": "Votre lieu mérite mieux qu'un compte à l'abandon.",
-      "contact.lead": "Dites-nous où vous êtes et ce que vous servez. On vous répond sous 48h avec un premier état des lieux de vos réseaux.",
+      "contact.lead": "Dites-nous où vous êtes et ce que vous servez. On vous répond sous 48 heures.",
       "f.name": "Votre nom", "f.place": "Nom du lieu", "f.email": "Email", "f.type": "Type de lieu",
-      "f.message": "Votre lieu en quelques mots", "f.send": "Recevoir mon audit gratuit",
+      "f.message": "Votre lieu en quelques mots", "f.send": "Envoyer la demande",
       "f.opt.r": "Restaurant", "f.opt.b": "Bar", "f.opt.c": "Club", "f.opt.cs": "Coffee shop", "f.opt.o": "Autre",
-      "f.phone": "Téléphone (optionnel)", "f.sending": "Envoi en cours…", "f.success": "Bien reçu ! On analyse vos réseaux et on revient vers vous sous 48h avec votre audit.", "f.error": "L'envoi a échoué — écrivez-nous directement à contact@nocta.paris.", "f.required": "Merci de renseigner au minimum votre nom, votre email et le nom du lieu.",
+      "f.phone": "Téléphone (optionnel)", "f.sending": "Envoi en cours…", "f.success": "Bien reçu ! On revient vers vous sous 48 heures.", "f.error": "L'envoi a échoué — écrivez-nous directement à contact@nocta.paris.", "f.required": "Merci de renseigner au minimum votre nom, votre email et le nom du lieu.",
       "c.k1": "Email", "c.k2": "Zone", "c.v2": "Paris & Île-de-France", "c.k3": "Instagram", "c.k4": "Réponse",
       "c.v4": "Sous 48 heures",
 
@@ -149,16 +158,16 @@
       "pg.work.eyebrow": "Réalisations",
       "pg.work.title": "Le contenu, décliné.",
       "pg.contact.eyebrow": "Contact",
-      "pg.contact.title": "On commence par un audit de vos réseaux."
+      "pg.contact.title": "On commence par une conversation."
     },
 
     en: {
       "nav.home": "Home", "nav.services": "Services", "nav.pricing": "Plans",
-      "nav.work": "Work", "nav.contact": "Contact", "nav.cta": "Free audit",
+      "nav.work": "Work", "nav.contact": "Contact", "nav.cta": "Get in touch",
 
       "hero.kicker": "Community management · Paris & Île-de-France",
       "hero.tag": "Your venue's content, <b>managed end to end.</b>",
-      "hero.cta1": "Get a free audit", "hero.cta2": "Our services", "hero.scroll": "Scroll",
+      "hero.cta1": "Get in touch", "hero.cta2": "Our services", "hero.scroll": "Scroll",
 
       "mq.1": "Restaurants", "mq.2": "Bars", "mq.3": "Clubs",
       "mq.4": "Coffee shops", "mq.5": "Wine bars", "mq.6": "Rooftops",
@@ -170,7 +179,7 @@
       "st.hint": "Swipe",
       "st.1.i": "01", "st.1.t": "You're swamped.", "st.1.d": "Service is running, the room is full, and your Instagram… waits. You've neither the time nor the will to deal with it at 11pm.",
       "st.2.i": "02", "st.2.t": "It's decided before the door.", "st.2.d": "Today a venue is chosen on a screen before anyone walks in. A dead feed is an empty table no one sees.",
-      "st.3.i": "03", "st.3.t": "You hand it all over.", "st.3.d": "A call, an audit, an access. From there, a team that does only this takes over your entire presence.",
+      "st.3.i": "03", "st.3.t": "You hand it all over.", "st.3.d": "A call, a visit, an access. From there, a team that does only this takes over your entire presence.",
       "st.4.i": "04", "st.4.t": "While you run the room…", "st.4.d": "…we create, publish, reply and tend your reviews. Every day, without you having to think about it.",
       "st.5.i": "05", "st.5.t": "And the crowd comes back.", "st.5.d": "More views, more messages, more bookings. Your venue is finally seen as well as it's lived.",
 
@@ -195,7 +204,7 @@
 
       "steps.eyebrow": "How it works",
       "steps.title": "One single contact. A full month of presence.",
-      "steps.1.t": "We listen", "steps.1.d": "A call, an audit of your socials. We learn your venue, your crowd, what sets you apart.",
+      "steps.1.t": "We listen", "steps.1.d": "A call, a look at your socials. We learn your venue, your crowd, what sets you apart.",
       "steps.2.t": "We plan", "steps.2.d": "Editorial line, calendar, rubrics. We lay down a real strategy, not post-by-post guesswork.",
       "steps.3.t": "We create", "steps.3.d": "Editing, visuals, captions. We turn your material into content that makes people want in.",
       "steps.4.t": "We run it", "steps.4.d": "Publishing, replies, reviews, ads. You watch your presence grow. That's it.",
@@ -210,7 +219,7 @@
       "plan.name": "The NOCTA plan",
       "plan.desc": "Your venue's community management, end to end. One plan, everything in it.",
       "tier.1.f1": "Audit & editorial line", "tier.1.f2": "15 to 20 pieces / month", "tier.1.f3": "Editing & visuals", "tier.1.f4": "Content strategy", "tier.1.f5": "Publishing calendar", "tier.1.f6": "Full community management", "tier.1.f7": "Google & reviews", "tier.1.f8": "Meta & TikTok ad management",
-      "tier.cta": "Get a free audit",
+      "tier.cta": "Get in touch",
       "tier.note": "Media budget (what you invest in ads) on top, set with you.",
 
       "work.eyebrow": "Work",
@@ -224,6 +233,15 @@
       "work.r6.k": "Wine bar", "work.r6.t": "By candlelight",
       "work.disclaimer": "Intent visuals — direction examples, not real clients.",
 
+      "tour.eyebrow": "The tour",
+      "tour.title": "Step inside the venues we run.",
+      "tour.hint": "Keep scrolling",
+      "tour.cta": "See the work",
+      "tour.1.line": "7:30pm. Golden hour sweeps the room — tonight's dish hits stories before the first cover.",
+      "tour.2.line": "11:50pm. The shaker snaps, the neons hum — the signature's reel is already out.",
+      "tour.3.line": "2:10am. Bass in the ceiling — tomorrow, the queue will have seen the video.",
+      "tour.4.line": "8:05am. Latte art, soft light — the neighbourhood already knows where its first coffee is.",
+      "tour.out": "Four worlds. One hand.",
       "ct.eyebrow": "What we produce",
       "ct.title": "Every format that brings a venue to life.",
       "ct.lead": "From your material — your dishes, your team, your nights — we shape content across every format that matters.",
@@ -272,16 +290,16 @@
 
       "cta.eyebrow": "Ready to delegate?",
       "cta.title": "We handle everything.",
-      "cta.lead": "Ask for your free audit: we analyse your socials and show you concretely what your presence can become in a month.",
-      "cta.btn": "Get my free audit",
+      "cta.lead": "Tell us where you stand. We show you concretely what your presence can become in a month.",
+      "cta.btn": "Get in touch",
 
       "contact.eyebrow": "Let's talk",
       "contact.title": "Your venue deserves better than a neglected account.",
-      "contact.lead": "Tell us where you are and what you serve. We reply within 48h with a first assessment of your socials.",
+      "contact.lead": "Tell us where you are and what you serve. We reply within 48 hours.",
       "f.name": "Your name", "f.place": "Venue name", "f.email": "Email", "f.type": "Venue type",
-      "f.message": "Your venue in a few words", "f.send": "Get my free audit",
+      "f.message": "Your venue in a few words", "f.send": "Send request",
       "f.opt.r": "Restaurant", "f.opt.b": "Bar", "f.opt.c": "Club", "f.opt.cs": "Coffee shop", "f.opt.o": "Other",
-      "f.phone": "Phone (optional)", "f.sending": "Sending…", "f.success": "Received! We're analysing your socials and will get back to you within 48h with your audit.", "f.error": "Sending failed — email us directly at contact@nocta.paris.", "f.required": "Please fill in at least your name, email and venue name.",
+      "f.phone": "Phone (optional)", "f.sending": "Sending…", "f.success": "Received! We'll get back to you within 48 hours.", "f.error": "Sending failed — email us directly at contact@nocta.paris.", "f.required": "Please fill in at least your name, email and venue name.",
       "c.k1": "Email", "c.k2": "Area", "c.v2": "Paris & Île-de-France", "c.k3": "Instagram", "c.k4": "Reply",
       "c.v4": "Within 48 hours",
 
@@ -298,7 +316,7 @@
       "pg.work.eyebrow": "Work",
       "pg.work.title": "The content, in variations.",
       "pg.contact.eyebrow": "Contact",
-      "pg.contact.title": "It starts with an audit of your socials."
+      "pg.contact.title": "It starts with a conversation."
     }
   };
 

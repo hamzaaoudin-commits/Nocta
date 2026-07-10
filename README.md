@@ -10,7 +10,7 @@ Site statique multi-pages bilingue FR/EN, expérience scroll-driven (bokeh 3D pe
 index.html            Accueil (hero 3D, manifeste, parcours épinglé, comparateur, piliers, timeline, cas, FAQ)
 prestations.html      Piliers + formats + timeline
 realisations.html     Formats + études de cas + grille
-contact.html          Formulaire d'audit gratuit (Formspree ou fallback mail)
+contact.html          Formulaire de contact (Formspree ou fallback mail)
 mentions.html         Mentions légales  ← compléter les [PLACEHOLDERS]
 confidentialite.html  Politique de confidentialité (RGPD)
 404.html              Page introuvable
