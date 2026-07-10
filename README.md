@@ -1,53 +1,37 @@
 # NOCTA — site
 
-> Le contenu de votre lieu, par un réalisateur.
-> Paris & Île-de-France.
+> Le contenu de votre lieu, géré de A à Z.
+> Community management · Paris & Île-de-France.
 
-Site statique multi-pages, bilingue **FR / EN**, sans étape de build.
-Direction : *« après minuit, vu à travers l'objectif »* — duo néon corail / indigo sur encre nocturne, signature **rack focus** (le point se fait au scroll/survol) et champ de **bokeh 3D** réactif à la souris (Three.js, avec repli gracieux).
+Site statique multi-pages bilingue FR/EN, expérience scroll-driven (bokeh 3D persistant, parcours épinglé, comparateur avant/après, timeline dessinée au scroll).
 
 ## Structure
-
 ```
-.
-├── index.html            Accueil (hero 3D, manifeste, démo focus, piliers, étapes, formules, réalisations, CTA)
-├── prestations.html      Les 6 piliers + le déroulé en 4 temps
-├── formules.html         Devanture / Salle / Comble — détaillées
-├── realisations.html     Grille de réalisations (rack focus)
-├── contact.html          Formulaire (ouvre le client mail) + coordonnées
-├── assets/
-│   ├── styles.css        Design system complet
-│   ├── i18n.js           Dictionnaire FR/EN + bascule de langue
-│   └── app.js            Bokeh 3D, rack focus, tilt, spotlight, magnétisme, reveals
-├── favicon.svg
-├── og.png                Carte de partage (1200×630)
-├── vercel.json           cleanUrls + en-têtes sécurité + cache
-├── sitemap.xml
-└── robots.txt
+index.html            Accueil (hero 3D, manifeste, parcours épinglé, comparateur, piliers, timeline, cas, FAQ)
+prestations.html      Piliers + formats + timeline
+realisations.html     Formats + études de cas + grille
+contact.html          Formulaire d'audit gratuit (Formspree ou fallback mail)
+mentions.html         Mentions légales  ← compléter les [PLACEHOLDERS]
+confidentialite.html  Politique de confidentialité (RGPD)
+404.html              Page introuvable
+assets/               styles.css · i18n.js · app.js · config.js
 ```
 
-> `make_og.py` et les `*.ttf` servent uniquement à régénérer `og.png` — exclus du déploiement via `.gitignore`.
+## ⚠️ À faire sur GitHub
+Le drag & drop GitHub **n'efface jamais** les anciens fichiers :
+- **Supprimer `formules.html`** du dépôt (page obsolète encore en ligne sur /formules).
 
-## Déploiement (GitHub + Vercel)
-
-1. **GitHub** — glisser-déposer tout le dossier dans un nouveau dépôt (web UI), *commit*.
-2. **Vercel** — *New Project* → importer le dépôt. Pas de framework, pas de build : *Output = racine*. *Deploy*.
-3. **Domaine** — Vercel → *Settings → Domains* → ajouter `nocta.paris`
-   (enregistrement A `76.76.21.21`, ou bascule des serveurs de noms vers Vercel).
-
-Chaque *push* sur la branche redéploie automatiquement.
+## Checklist avant mise en production
+1. **Formulaire** : créer un formulaire sur formspree.io → coller l'URL dans `assets/config.js` (`FORMSPREE_ENDPOINT`). Sans ça, fallback mailto.
+2. **Mentions légales** : remplir les `[PLACEHOLDERS]` dans `mentions.html` (dénomination, SIREN, adresse, directeur de publication).
+3. **Email** : créer la boîte `contact@nocta.paris`.
+4. **Domaine** : pointer `nocta.paris` (Vercel → Settings → Domains, A 76.76.21.21).
+5. **Réseaux** : remplacer les liens placeholder Instagram/TikTok dans les footers.
+6. **Google Business Profile** : créer la fiche (catégorie agence de marketing, zone Paris/IDF) — essentiel pour le SEO local.
+7. (Option) Analytics : Plausible ou GA4.
 
 ## Bilingue
+FR écrit en dur dans le HTML (SEO/no-JS), EN injecté via `data-i18n` (`assets/i18n.js`). Langue mémorisée en localStorage.
 
-Tous les textes portent un attribut `data-i18n="clé"` ; le français est écrit en dur dans le HTML (SEO + affichage sans JS), l'anglais est injecté à la volée. La langue est mémorisée (`localStorage`, clé `nocta-lang`). Pour modifier un texte : éditer la valeur dans `assets/i18n.js` (FR **et** EN).
-
-## Avant la mise en ligne
-
-- [ ] Créer la boîte `contact@nocta.paris`.
-- [ ] Remplacer les liens Instagram / TikTok (placeholders `https://instagram.com` / `https://tiktok.com`).
-- [ ] Pointer le domaine `nocta.paris`.
-- [ ] (Option) Brancher le formulaire sur Formspree / Resend au lieu du `mailto:`.
-
----
-
-© NOCTA — conçu la nuit, à Paris.
+## Déploiement
+GitHub → Vercel (aucun build). Chaque push redéploie. Cache-busting via `?v=N` dans les pages.

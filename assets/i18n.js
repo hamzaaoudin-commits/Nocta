@@ -5,11 +5,11 @@
   const DICT = {
     fr: {
       "nav.home": "Accueil", "nav.services": "Prestations", "nav.pricing": "Formules",
-      "nav.work": "Réalisations", "nav.contact": "Contact", "nav.cta": "Prendre contact",
+      "nav.work": "Réalisations", "nav.contact": "Contact", "nav.cta": "Audit gratuit",
 
       "hero.kicker": "Community management · Paris & Île-de-France",
       "hero.tag": "Le contenu de votre lieu, <b>géré de A à Z.</b>",
-      "hero.cta1": "Prendre contact", "hero.cta2": "Nos prestations", "hero.scroll": "Défiler",
+      "hero.cta1": "Demander un audit gratuit", "hero.cta2": "Nos prestations", "hero.scroll": "Défiler",
 
       "mq.1": "Restaurants", "mq.2": "Bars", "mq.3": "Clubs",
       "mq.4": "Coffee shops", "mq.5": "Caves & bistrots", "mq.6": "Rooftops",
@@ -61,7 +61,7 @@
       "plan.name": "L'offre NOCTA",
       "plan.desc": "Le community management de votre lieu, de A à Z. Un seul forfait, tout est dedans.",
       "tier.1.f1": "Audit & ligne éditoriale", "tier.1.f2": "15 à 20 contenus / mois", "tier.1.f3": "Montage & visuels", "tier.1.f4": "Stratégie de contenu", "tier.1.f5": "Calendrier de publication", "tier.1.f6": "Community management complet", "tier.1.f7": "Gestion Google & avis", "tier.1.f8": "Pilotage publicitaire Meta & TikTok",
-      "tier.cta": "Prendre contact",
+      "tier.cta": "Demander un audit gratuit",
       "tier.note": "Budget média (ce que vous investissez en pub) en sus, défini avec vous.",
 
       "work.eyebrow": "Réalisations",
@@ -123,15 +123,16 @@
 
       "cta.eyebrow": "Prêt à déléguer ?",
       "cta.title": "On s'occupe de tout.",
-      "cta.lead": "Dites-nous où vous en êtes. On vous montre concrètement ce que votre présence peut devenir en un mois.",
-      "cta.btn": "Prendre contact",
+      "cta.lead": "Demandez votre audit gratuit : on analyse vos réseaux et on vous montre concrètement ce que votre présence peut devenir en un mois.",
+      "cta.btn": "Demander mon audit gratuit",
 
       "contact.eyebrow": "Parlons-en",
       "contact.title": "Votre lieu mérite mieux qu'un compte à l'abandon.",
       "contact.lead": "Dites-nous où vous êtes et ce que vous servez. On vous répond sous 48h avec un premier état des lieux de vos réseaux.",
       "f.name": "Votre nom", "f.place": "Nom du lieu", "f.email": "Email", "f.type": "Type de lieu",
-      "f.message": "Votre lieu en quelques mots", "f.send": "Envoyer la demande",
+      "f.message": "Votre lieu en quelques mots", "f.send": "Recevoir mon audit gratuit",
       "f.opt.r": "Restaurant", "f.opt.b": "Bar", "f.opt.c": "Club", "f.opt.cs": "Coffee shop", "f.opt.o": "Autre",
+      "f.phone": "Téléphone (optionnel)", "f.sending": "Envoi en cours…", "f.success": "Bien reçu ! On analyse vos réseaux et on revient vers vous sous 48h avec votre audit.", "f.error": "L'envoi a échoué — écrivez-nous directement à contact@nocta.paris.", "f.required": "Merci de renseigner au minimum votre nom, votre email et le nom du lieu.",
       "c.k1": "Email", "c.k2": "Zone", "c.v2": "Paris & Île-de-France", "c.k3": "Instagram", "c.k4": "Réponse",
       "c.v4": "Sous 48 heures",
 
@@ -153,11 +154,11 @@
 
     en: {
       "nav.home": "Home", "nav.services": "Services", "nav.pricing": "Plans",
-      "nav.work": "Work", "nav.contact": "Contact", "nav.cta": "Get in touch",
+      "nav.work": "Work", "nav.contact": "Contact", "nav.cta": "Free audit",
 
       "hero.kicker": "Community management · Paris & Île-de-France",
       "hero.tag": "Your venue's content, <b>managed end to end.</b>",
-      "hero.cta1": "Get in touch", "hero.cta2": "Our services", "hero.scroll": "Scroll",
+      "hero.cta1": "Get a free audit", "hero.cta2": "Our services", "hero.scroll": "Scroll",
 
       "mq.1": "Restaurants", "mq.2": "Bars", "mq.3": "Clubs",
       "mq.4": "Coffee shops", "mq.5": "Wine bars", "mq.6": "Rooftops",
@@ -209,7 +210,7 @@
       "plan.name": "The NOCTA plan",
       "plan.desc": "Your venue's community management, end to end. One plan, everything in it.",
       "tier.1.f1": "Audit & editorial line", "tier.1.f2": "15 to 20 pieces / month", "tier.1.f3": "Editing & visuals", "tier.1.f4": "Content strategy", "tier.1.f5": "Publishing calendar", "tier.1.f6": "Full community management", "tier.1.f7": "Google & reviews", "tier.1.f8": "Meta & TikTok ad management",
-      "tier.cta": "Get in touch",
+      "tier.cta": "Get a free audit",
       "tier.note": "Media budget (what you invest in ads) on top, set with you.",
 
       "work.eyebrow": "Work",
@@ -271,15 +272,16 @@
 
       "cta.eyebrow": "Ready to delegate?",
       "cta.title": "We handle everything.",
-      "cta.lead": "Tell us where you stand. We'll show you concretely what your presence can become in a month.",
-      "cta.btn": "Get in touch",
+      "cta.lead": "Ask for your free audit: we analyse your socials and show you concretely what your presence can become in a month.",
+      "cta.btn": "Get my free audit",
 
       "contact.eyebrow": "Let's talk",
       "contact.title": "Your venue deserves better than a neglected account.",
       "contact.lead": "Tell us where you are and what you serve. We reply within 48h with a first assessment of your socials.",
       "f.name": "Your name", "f.place": "Venue name", "f.email": "Email", "f.type": "Venue type",
-      "f.message": "Your venue in a few words", "f.send": "Send request",
+      "f.message": "Your venue in a few words", "f.send": "Get my free audit",
       "f.opt.r": "Restaurant", "f.opt.b": "Bar", "f.opt.c": "Club", "f.opt.cs": "Coffee shop", "f.opt.o": "Other",
+      "f.phone": "Phone (optional)", "f.sending": "Sending…", "f.success": "Received! We're analysing your socials and will get back to you within 48h with your audit.", "f.error": "Sending failed — email us directly at contact@nocta.paris.", "f.required": "Please fill in at least your name, email and venue name.",
       "c.k1": "Email", "c.k2": "Area", "c.v2": "Paris & Île-de-France", "c.k3": "Instagram", "c.k4": "Reply",
       "c.v4": "Within 48 hours",
 

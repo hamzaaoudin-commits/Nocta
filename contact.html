@@ -8,13 +8,13 @@
 <meta content="On commence par un audit de vos réseaux. Dites-nous où vous êtes et ce que vous servez : réponse sous 48h. Paris &amp; Île-de-France." name="description"/>
 <link href="https://nocta.paris/contact" rel="canonical"/>
 <meta content="#0a0910" name="theme-color"/>
-<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/><link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
 <meta content="Contact · NOCTA" property="og:title"/>
 <meta content="https://nocta.paris/og.png" property="og:image"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Hanken+Grotesk:wght@300;400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="/assets/styles.css?v=10" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Serif:ital@1&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/styles.css?v=11" rel="stylesheet"/>
 <meta content="FR-IDF" name="geo.region"/><meta content="Paris" name="geo.placename"/><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -57,8 +57,8 @@
     "price": "1000",
     "description": "Community management mensuel tout compris pour les lieux d'hôtellerie-restauration"
   }
-}</script></head>
-<body><div class="scroll-progress"><span></span></div><div aria-hidden="true" class="ambient"></div>
+}</script><meta content="On commence par un audit de vos réseaux. Dites-nous où vous êtes et ce que vous servez : réponse sous 48h. Paris &amp; Île-de-France." property="og:description"/><meta content="https://nocta.paris/contact" property="og:url"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/></head>
+<body><a class="skip-link" href="#main">Aller au contenu</a><div class="scroll-progress"><span></span></div><div aria-hidden="true" class="ambient"></div>
 <header class="nav">
 <a class="brand" href="/"><svg aria-hidden="true" class="mark" viewbox="0 0 32 32"><defs><lineargradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ff5d57"></stop><stop offset="1" stop-color="#7b6cff"></stop></lineargradient></defs><path d="M8 24 V8 L24 24 V8" fill="none" stroke="url(#bg)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>NOCTA</a>
 <nav class="nav-links">
@@ -69,11 +69,11 @@
 </nav>
 <div class="nav-right">
 <div aria-label="Language" class="lang" role="group"><button aria-pressed="true" data-lang-btn="fr">FR</button><button aria-pressed="false" data-lang-btn="en">EN</button></div>
-<a class="btn btn-primary" data-i18n="nav.cta" href="/contact">Prendre contact</a>
+<a class="btn btn-primary" data-i18n="nav.cta" href="/contact">Audit gratuit</a>
 <button aria-expanded="false" aria-label="Menu" class="burger"><span></span><span></span><span></span></button>
 </div>
 </header>
-<main>
+<main id="main">
 <section class="section" style="padding-top:clamp(48px,8vw,90px)">
 <div class="wrap">
 <div class="grid cols-2" style="gap:clamp(2.5rem,6vw,5rem); align-items:start">
@@ -90,11 +90,12 @@
 </div>
 <div class="card reveal d1" style="padding:clamp(1.8rem,3vw,2.6rem)">
 <div class="form-grid" id="reelForm">
-<div class="field"><label data-i18n="f.name">Votre nom</label><input data-i18n-attr="placeholder:f.name" id="fName" type="text"/></div>
-<div class="field"><label data-i18n="f.place">Nom du lieu</label><input data-i18n-attr="placeholder:f.place" id="fPlace" type="text"/></div>
-<div class="field"><label data-i18n="f.email">Email</label><input data-i18n-attr="placeholder:f.email" id="fEmail" type="email"/></div>
-<div class="field"><label data-i18n="f.type">Type de lieu</label>
-<select id="fType">
+<div class="field"><label data-i18n="f.name" for="fName">Votre nom</label><input autocomplete="name" data-i18n-attr="placeholder:f.name" id="fName" name="name" required="" type="text"/></div>
+<div class="field"><label data-i18n="f.place" for="fPlace">Nom du lieu</label><input autocomplete="organization" data-i18n-attr="placeholder:f.place" id="fPlace" name="venue" required="" type="text"/></div>
+<div class="field"><label data-i18n="f.email" for="fEmail">Email</label><input autocomplete="email" data-i18n-attr="placeholder:f.email" id="fEmail" name="email" required="" type="email"/></div>
+<div class="field"><label data-i18n="f.phone" for="fPhone">Téléphone (optionnel)</label><input autocomplete="tel" data-i18n-attr="placeholder:f.phone" id="fPhone" name="phone" type="tel"/></div>
+<div class="field"><label data-i18n="f.type" for="fType">Type de lieu</label>
+<select id="fType" name="type">
 <option data-i18n="f.opt.r">Restaurant</option>
 <option data-i18n="f.opt.b">Bar</option>
 <option data-i18n="f.opt.c">Club</option>
@@ -102,11 +103,12 @@
 <option data-i18n="f.opt.o">Autre</option>
 </select>
 </div>
-<div class="field full"><label data-i18n="f.message">Votre lieu en quelques mots</label><textarea data-i18n-attr="placeholder:f.message" id="fMsg"></textarea></div>
+<div class="field full"><label data-i18n="f.message" for="fMsg">Votre lieu en quelques mots</label><textarea data-i18n-attr="placeholder:f.message" id="fMsg" name="message"></textarea></div>
+<input aria-hidden="true" autocomplete="off" id="fHp" name="_gotcha" style="position:absolute;left:-9999px;opacity:0" tabindex="-1" type="text"/>
 <div class="field full">
-<button class="btn btn-primary" id="fSend" style="justify-content:center"><span data-i18n="f.send">Envoyer la demande</span><span class="arr">→</span></button>
-</div>
-</div>
+<button class="btn btn-primary" id="fSend" style="justify-content:center"><span data-i18n="f.send">Recevoir mon audit gratuit</span><span class="arr">→</span></button>
+<p aria-live="polite" id="fStatus" role="status" style="margin-top:.8rem; font-family:var(--mono); font-size:.8rem; color:var(--smoke)"></p>
+</div></div>
 </div>
 </div>
 </div>
@@ -119,36 +121,45 @@
 <div class="foot-cols">
 <div class="foot-col"><h4 data-i18n="foot.nav">Navigation</h4><a data-i18n="nav.home" href="/">Accueil</a><a data-i18n="nav.services" href="/prestations">Prestations</a><a data-i18n="nav.work" href="/realisations">Réalisations</a><a data-i18n="nav.contact" href="/contact">Contact</a></div>
 <div class="foot-col"><h4 data-i18n="foot.social">Réseaux</h4><a href="https://instagram.com" rel="noopener" target="_blank">Instagram</a><a href="https://tiktok.com" rel="noopener" target="_blank">TikTok</a><a href="mailto:contact@nocta.paris">contact@nocta.paris</a></div>
-</div>
+<div class="foot-col"><h4 data-i18n="foot.legal">Informations</h4><a data-i18n="foot.mentions" href="/mentions">Mentions légales</a><a data-i18n="foot.privacy" href="/confidentialite">Confidentialité</a></div></div>
 </div>
 <div class="foot-bottom"><span>© <span id="yr"></span> NOCTA — <span data-i18n="foot.rights">Tous droits réservés.</span></span><span data-i18n="foot.made">Conçu la nuit, à Paris.</span></div>
 </div>
 </footer>
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
-<script src="/assets/i18n.js?v=10"></script>
-<script src="/assets/app.js?v=10"></script>
+<script src="/assets/config.js?v=11"></script><script src="/assets/i18n.js?v=11"></script>
+<script src="/assets/app.js?v=11"></script>
 <script>
-  // Zero-backend: compose a prefilled email to NOCTA.
-  document.getElementById("fSend").addEventListener("click", function () {
-    var name = document.getElementById("fName").value.trim();
-    var place = document.getElementById("fPlace").value.trim();
-    var email = document.getElementById("fEmail").value.trim();
-    var type = document.getElementById("fType").value;
-    var msg = document.getElementById("fMsg").value.trim();
-    var lang = document.documentElement.lang || "fr";
-    var subject = (lang === "en" ? "Contact request — " : "Demande de contact — ") + (place || name || "NOCTA");
-    var bodyLines = [
-      (lang === "en" ? "Name: " : "Nom : ") + name,
-      (lang === "en" ? "Venue: " : "Lieu : ") + place,
-      (lang === "en" ? "Email: " : "Email : ") + email,
-      (lang === "en" ? "Type: " : "Type : ") + type,
-      "",
-      msg
-    ];
-    var href = "mailto:contact@nocta.paris?subject=" + encodeURIComponent(subject) +
-               "&body=" + encodeURIComponent(bodyLines.join("\n"));
-    window.location.href = href;
-  });
-</script>
+  (function(){
+    var btn = document.getElementById("fSend");
+    var status = document.getElementById("fStatus");
+    function t(key){ var d = (window.NOCTA_I18N && NOCTA_I18N.DICT[NOCTA_I18N.getLang()]) || {}; return d[key] || key; }
+    btn.addEventListener("click", function(){
+      if (document.getElementById("fHp").value) return; // honeypot
+      var data = {
+        name: document.getElementById("fName").value.trim(),
+        venue: document.getElementById("fPlace").value.trim(),
+        email: document.getElementById("fEmail").value.trim(),
+        phone: document.getElementById("fPhone").value.trim(),
+        type: document.getElementById("fType").value,
+        message: document.getElementById("fMsg").value.trim(),
+        _subject: "Demande d'audit gratuit — NOCTA"
+      };
+      if (!data.name || !data.email || !data.venue) { status.textContent = t("f.required"); return; }
+      var endpoint = (window.NOCTA_CONFIG && NOCTA_CONFIG.FORMSPREE_ENDPOINT) || "";
+      if (endpoint) {
+        status.textContent = t("f.sending");
+        btn.disabled = true;
+        fetch(endpoint, { method:"POST", headers:{ "Accept":"application/json", "Content-Type":"application/json" }, body: JSON.stringify(data) })
+          .then(function(r){ if (!r.ok) throw 0; status.textContent = t("f.success"); document.getElementById("reelForm").querySelectorAll("input,select,textarea").forEach(function(el){ el.disabled = true; }); })
+          .catch(function(){ status.textContent = t("f.error"); btn.disabled = false; });
+      } else {
+        var lang = document.documentElement.lang || "fr";
+        var subject = (lang === "en" ? "Free audit request — " : "Demande d'audit gratuit — ") + (data.venue || data.name);
+        var body = [(lang==="en"?"Name: ":"Nom : ")+data.name,(lang==="en"?"Venue: ":"Lieu : ")+data.venue,"Email : "+data.email,(lang==="en"?"Phone: ":"Téléphone : ")+data.phone,"Type : "+data.type,"",data.message].join("\n");
+        window.location.href = "mailto:contact@nocta.paris?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+      }
+    });
+  })();</script>
 </body>
 </html>
