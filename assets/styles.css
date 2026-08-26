@@ -456,7 +456,7 @@ h1,h2,h3{ font-family:var(--display); font-weight:700; line-height:1.02; letter-
 
 /* hero: legibility scrim + scroll-out */
 .hero-scrim{ position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:radial-gradient(75% 85% at 32% 55%, rgba(10,9,16,.82) 0%, rgba(10,9,16,.45) 45%, transparent 72%); }
+  background:radial-gradient(85% 95% at 50% 50%, rgba(10,9,16,.72) 0%, rgba(10,9,16,.42) 48%, transparent 78%); }
 .hero .wrap{ will-change:transform, opacity; }
 .hero-kicker{ background:rgba(10,9,16,.55); border:1px solid var(--line-soft);
   padding:.5em 1em; border-radius:100px; }
