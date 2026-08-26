@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Serif:ital@1&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="/assets/styles.css?v=12" rel="stylesheet"/>
+<link href="/assets/styles.css?v=13" rel="stylesheet"/>
 <meta content="FR-IDF" name="geo.region"/><meta content="Paris" name="geo.placename"/><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -80,16 +80,16 @@
   </a>
 <nav class="nav-links">
 <a aria-current="page" data-i18n="nav.home" href="/">Accueil</a>
-<a data-i18n="nav.services" href="/prestations">Prestations</a>
-<a data-i18n="nav.work" href="/realisations">Réalisations</a>
-<a data-i18n="nav.contact" href="/contact">Contact</a>
+<a data-i18n="nav.services" href="#prestations">Prestations</a>
+<a data-i18n="nav.work" href="#realisations">Réalisations</a>
+<a data-i18n="nav.contact" href="#contact">Contact</a>
 </nav>
 <div class="nav-right">
 <div aria-label="Language" class="lang" role="group">
 <button aria-pressed="true" data-lang-btn="fr">FR</button>
 <button aria-pressed="false" data-lang-btn="en">EN</button>
 </div>
-<a class="btn btn-primary" data-i18n="nav.cta" href="/contact">Prendre contact</a>
+<a class="btn btn-primary" data-i18n="nav.cta" href="#contact">Prendre contact</a>
 <button aria-expanded="false" aria-label="Menu" class="burger"><span></span><span></span><span></span></button>
 </div>
 </header>
@@ -103,8 +103,8 @@
 <h1 class="wordmark flicker">NOCTA</h1>
 <p class="hero-tag" data-i18n="hero.tag">Le contenu de votre lieu, <b>géré de A à Z.</b></p>
 <div class="hero-cta">
-<a class="btn btn-primary" href="/contact"><span data-i18n="hero.cta1">Prendre contact</span><span class="arr">→</span></a>
-<a class="btn btn-ghost" data-i18n="hero.cta2" href="/prestations">Nos prestations</a>
+<a class="btn btn-primary" href="#contact"><span data-i18n="hero.cta1">Prendre contact</span><span class="arr">→</span></a>
+<a class="btn btn-ghost" data-i18n="hero.cta2" href="#prestations">Nos prestations</a>
 </div>
 </div>
 <span class="scroll-hint" data-i18n="hero.scroll">Défiler</span>
@@ -124,7 +124,7 @@
 <section class="section manifesto">
 <div class="wrap">
 <span class="eyebrow reveal" data-i18n="man.eyebrow">Le constat</span>
-<p class="reveal d1" data-i18n="man.body">Votre cuisine est excellente. Votre salle est pleine. <em>Et pourtant</em> votre Instagram dort, vos messages restent sans réponse et vos avis vous échappent.</p>
+<p class="reveal d1" data-i18n="man.body">Votre cuisine est excellente. Votre salle est pleine. <em>Et pourtant</em>, dehors, vous êtes invisible : un Instagram qui dort, des messages jamais lus, des avis qui vous échappent. Pendant ce temps, à quelques rues de là, un concurrent moins bon que vous remplit sa salle avec un seul reel bien senti.</p>
 </div>
 </section><section class="story-section section">
 <div class="story-pin"><div class="story-sticky"><div class="wrap story">
@@ -210,7 +210,7 @@
 </section>
 <hr class="rule"/>
 <!-- ============ PILLARS ============ -->
-<section class="section">
+<section class="section" id="prestations">
 <div class="wrap">
 <div class="section-head reveal">
 <span class="eyebrow" data-i18n="pil.eyebrow">Ce qu'on prend en main</span>
@@ -218,11 +218,14 @@
 </div>
 <div class="grid cols-3">
 <article class="card tilt reveal"><span class="num">01</span><h3 data-i18n="pil.1.t">Stratégie éditoriale</h3><p data-i18n="pil.1.d">On définit votre ligne, votre ton, vos rubriques. Une direction claire, pas des posts au hasard.</p></article>
-<article class="card tilt reveal d1"><span class="num">02</span><h3 data-i18n="pil.2.t">Création de contenu</h3><p data-i18n="pil.2.d">Montage de vos formats courts, visuels, carrousels. On façonne le contenu à partir de votre matière et de vos temps forts.</p></article>
-<article class="card tilt reveal d2"><span class="num">03</span><h3 data-i18n="pil.3.t">Publication</h3><p data-i18n="pil.3.d">Calendrier éditorial tenu, légendes écrites, formats adaptés à chaque réseau. Rien ne dort.</p></article>
-<article class="card tilt reveal"><span class="num">04</span><h3 data-i18n="pil.4.t">Community management</h3><p data-i18n="pil.4.d">Réponses aux messages et commentaires, dans le ton de votre maison. Une présence vivante au quotidien.</p></article>
-<article class="card tilt reveal d1"><span class="num">05</span><h3 data-i18n="pil.5.t">Google &amp; avis</h3><p data-i18n="pil.5.d">Fiche optimisée, photos soignées, gestion des avis. La première impression se joue avant la porte.</p></article>
-<article class="card tilt reveal d2"><span class="num">06</span><h3 data-i18n="pil.6.t">Croissance</h3><p data-i18n="pil.6.d">Pilotage de la pub Meta &amp; TikTok, événementiel, seeding créateurs. On fait venir du monde.</p></article>
+<article class="card tilt reveal d1"><span class="num">02</span><h3 data-i18n="pil.2.t">Scripts &amp; captation</h3><p data-i18n="pil.2.d">Avant chaque tournage, un script précis : plan par plan, ce qu'il faut dire, ce qu'il faut capter. Vous filmez avec votre téléphone, guidé du début à la fin.</p></article>
+<article class="card tilt reveal d2"><span class="num">03</span><h3 data-i18n="pil.3.t">Création de contenu &amp; visuels</h3><p data-i18n="pil.3.d">Montage de vos formats courts, visuels, carrousels. On façonne le contenu à partir de votre matière et de vos temps forts.</p></article>
+<article class="card tilt reveal"><span class="num">04</span><h3 data-i18n="pil.4.t">Copywriting</h3><p data-i18n="pil.4.d">Légendes, bio, fiche Google, descriptions de menu : on retravaille tous vos textes pour qu'ils donnent envie, pas juste qu'ils informent.</p></article>
+<article class="card tilt reveal d1"><span class="num">05</span><h3 data-i18n="pil.5.t">Test audience IA</h3><p data-i18n="pil.5.d">Avant de trancher entre deux visuels ou deux angles, on simule la réaction d'une audience cible par IA. On publie ce qui marche, pas ce qu'on préfère.</p></article>
+<article class="card tilt reveal d2"><span class="num">06</span><h3 data-i18n="pil.6.t">Publication</h3><p data-i18n="pil.6.d">Calendrier éditorial tenu, légendes écrites, formats adaptés à chaque réseau. Rien ne dort.</p></article>
+<article class="card tilt reveal"><span class="num">07</span><h3 data-i18n="pil.7.t">Community management</h3><p data-i18n="pil.7.d">Réponses aux messages et commentaires, dans le ton de votre maison. Une présence vivante au quotidien.</p></article>
+<article class="card tilt reveal d1"><span class="num">08</span><h3 data-i18n="pil.8.t">Google &amp; avis</h3><p data-i18n="pil.8.d">Fiche optimisée, photos soignées, gestion des avis. La première impression se joue avant la porte.</p></article>
+<article class="card tilt reveal d2"><span class="num">09</span><h3 data-i18n="pil.9.t">Croissance</h3><p data-i18n="pil.9.d">Pilotage de la pub Meta &amp; TikTok, événementiel, seeding créateurs. On fait venir du monde.</p></article>
 </div>
 </div>
 </section><section class="section">
@@ -267,9 +270,9 @@
 <!-- ============ STATS ============ -->
 <section class="section">
 <div class="wrap stats">
-<div class="stat reveal" data-plx="0.04"><div class="v" data-count="" data-i18n="stat.1.v">20</div><div class="l" data-i18n="stat.1.l">Contenus publiés / mois</div></div>
-<div class="stat reveal d1" data-plx="0.07"><div class="v" data-count="" data-i18n="stat.2.v">365</div><div class="l" data-i18n="stat.2.l">Jours de présence / an</div></div>
-<div class="stat reveal d2" data-plx="0.10"><div class="v" data-i18n="stat.3.v">48h</div><div class="l" data-i18n="stat.3.l">Réponse à votre demande</div></div>
+<div class="stat card tilt reveal" data-plx="0.04"><span class="num">01</span><div class="v" data-count="" data-i18n="stat.1.v">20</div><div class="l" data-i18n="stat.1.l">Contenus publiés / mois</div></div>
+<div class="stat card tilt reveal d1" data-plx="0.07"><span class="num">02</span><div class="v" data-count="" data-i18n="stat.2.v">365</div><div class="l" data-i18n="stat.2.l">Jours de présence / an</div></div>
+<div class="stat card tilt reveal d2" data-plx="0.10"><span class="num">03</span><div class="v" data-i18n="stat.3.v">48h</div><div class="l" data-i18n="stat.3.l">Réponse à votre demande</div></div>
 </div>
 </section><section class="section">
 <div class="wrap">
@@ -278,7 +281,7 @@
 <h2 class="h-sec" data-i18n="cs.title">Ce que ça donne, concrètement.</h2>
 <p class="lead" data-i18n="cs.lead" style="margin-top:1.2rem">Trois situations qu'on rencontre tout le temps, et ce que NOCTA y change — chiffres à l'appui.</p>
 </div>
-<div class="cases">
+<div class="cases" id="realisations">
 <article class="case wipe">
 <span class="case-kicker" data-i18n="cs.1.k">Bistrot de quartier · Paris 11e</span>
 <h3 data-i18n="cs.1.title">De l'invisible à l'incontournable</h3>
@@ -292,10 +295,34 @@
 <div class="case-metric"><div class="v" data-count="" data-i18n="cs.1.m3v">4,8★</div><div class="l" data-i18n="cs.1.m3l">note Google (vs 4,2)</div></div>
 </div>
 </article>
+<article class="case wipe">
+<span class="case-kicker" data-i18n="cs.2.k">Bar à cocktails · Paris 9e</span>
+<h3 data-i18n="cs.2.title">Remplir les creux de semaine</h3>
+<div class="case-body">
+<div><div class="lbl" data-i18n="cs.pb">Le constat</div><p data-i18n="cs.2.pb">Week-ends pleins, mais du mardi au jeudi la salle tournait à 40 %. Aucune communication sur ces soirées.</p></div>
+<div><div class="lbl" data-i18n="cs.ac">Ce qu'on a mis en place</div><p data-i18n="cs.2.ac">Reels signatures cocktails (2/sem), soirées de semaine thématisées, publicité géociblée sur 2 km, jeu-concours mensuel.</p></div>
 </div>
-<div class="reveal" style="margin-top:1.6rem">
-<a class="btn btn-ghost" href="/realisations"><span data-i18n="cs.cta">Voir les études de cas</span><span class="arr">→</span></a>
+<div class="case-metrics"><div class="lbl case-when" data-i18n="cs.2.re" style="grid-column:1/-1; margin-bottom:.2rem">Résultats à 3 mois</div>
+<div class="case-metric"><div class="v" data-count="" data-i18n="cs.2.m1v">+37%</div><div class="l" data-i18n="cs.2.m1l">couverts mardi-jeudi</div></div>
+<div class="case-metric"><div class="v" data-count="" data-i18n="cs.2.m2v">94 000</div><div class="l" data-i18n="cs.2.m2l">vues/mois sur les Reels</div></div>
+<div class="case-metric"><div class="v" data-count="" data-i18n="cs.2.m3v">3,10€</div><div class="l" data-i18n="cs.2.m3l">coût par nouveau client</div></div>
 </div>
+</article>
+<article class="case wipe">
+<span class="case-kicker" data-i18n="cs.3.k">Coffee shop · Paris 3e</span>
+<h3 data-i18n="cs.3.title">Devenir le spot du quartier</h3>
+<div class="case-body">
+<div><div class="lbl" data-i18n="cs.pb">Le constat</div><p data-i18n="cs.3.pb">Lieu superbe mais invisible en ligne : 610 abonnés, des clients qui photographient sans jamais identifier le compte.</p></div>
+<div><div class="lbl" data-i18n="cs.ac">Ce qu'on a mis en place</div><p data-i18n="cs.3.ac">Identité de feed, carrousels latte art, 3 collabs créateurs food locaux, stratégie de hashtags et de lieu, repost du contenu client.</p></div>
+</div>
+<div class="case-metrics"><div class="lbl case-when" data-i18n="cs.3.re" style="grid-column:1/-1; margin-bottom:.2rem">Résultats à 5 mois</div>
+<div class="case-metric"><div class="v" data-count="" data-i18n="cs.3.m1v">610 → 6 900</div><div class="l" data-i18n="cs.3.m1l">abonnés</div></div>
+<div class="case-metric"><div class="v" data-count="" data-i18n="cs.3.m2v">x5</div><div class="l" data-i18n="cs.3.m2l">mentions &amp; tags</div></div>
+<div class="case-metric"><div class="v" data-count="" data-i18n="cs.3.m3v">1 200</div><div class="l" data-i18n="cs.3.m3l">visites profil/semaine</div></div>
+</div>
+</article>
+</div>
+<p class="muted reveal" data-i18n="cs.disclaimer" style="margin-top:1.6rem; font-family:var(--mono); font-size:.78rem">Scénarios construits à partir de situations réelles du secteur. Chiffres représentatifs des résultats visés, remplacés par vos données dès le premier mois.</p>
 </div>
 </section>
 <hr class="rule"/>
@@ -321,6 +348,11 @@
 <span class="ts-k" data-i18n="work.r1.k">Restaurant</span>
 <h3 class="ts-t" data-i18n="work.r1.t">L'heure dorée</h3>
 <p class="ts-line" data-i18n="tour.1.line">19h30. L'heure dorée traverse la salle — le plat du soir part en story avant le premier couvert.</p>
+<ul class="ts-list">
+<li data-i18n="tour.1.b1">Script envoyé avant le service : quoi filmer, dans quel ordre</li>
+<li data-i18n="tour.1.b2">Story montée et publiée en moins de 10 minutes</li>
+<li data-i18n="tour.1.b3">Légende et hashtags écrits à l'avance, prêts à partir</li>
+</ul>
 <span class="ts-num">01 — 04</span>
 </div>
 </div>
@@ -330,6 +362,11 @@
 <span class="ts-k" data-i18n="work.r2.k">Cocktail bar</span>
 <h3 class="ts-t" data-i18n="work.r2.t">Après minuit</h3>
 <p class="ts-line" data-i18n="tour.2.line">23h50. Le shaker claque, les néons vibrent — le reel de la signature tourne déjà.</p>
+<ul class="ts-list">
+<li data-i18n="tour.2.b1">Plan de tournage du reel signature préparé en amont</li>
+<li data-i18n="tour.2.b2">Montage rythmé et sous-titré, livré sous 48h</li>
+<li data-i18n="tour.2.b3">Publication calée sur l'heure de plus forte audience</li>
+</ul>
 <span class="ts-num">02 — 04</span>
 </div>
 </div>
@@ -339,6 +376,11 @@
 <span class="ts-k" data-i18n="work.r3.k">Club</span>
 <h3 class="ts-t" data-i18n="work.r3.t">Le sous-sol</h3>
 <p class="ts-line" data-i18n="tour.3.line">2h10. La basse fait trembler le plafond — demain, la file d'attente aura vu la vidéo.</p>
+<ul class="ts-list">
+<li data-i18n="tour.3.b1">Capture guidée pendant la soirée, script remis à l'équipe</li>
+<li data-i18n="tour.3.b2">Teaser monté et publié dès le lendemain matin</li>
+<li data-i18n="tour.3.b3">Ciblage publicitaire géolocalisé pour la semaine suivante</li>
+</ul>
 <span class="ts-num">03 — 04</span>
 </div>
 </div>
@@ -348,6 +390,11 @@
 <span class="ts-k" data-i18n="work.r4.k">Coffee shop</span>
 <h3 class="ts-t" data-i18n="work.r4.t">Lumière du matin</h3>
 <p class="ts-line" data-i18n="tour.4.line">8h05. Latte art, lumière douce — le quartier sait déjà où prendre son premier café.</p>
+<ul class="ts-list">
+<li data-i18n="tour.4.b1">Photo et carrousel préparés à partir des visuels du matin</li>
+<li data-i18n="tour.4.b2">Story quotidienne postée avant l'heure de pointe</li>
+<li data-i18n="tour.4.b3">Réponses aux commentaires et avis dans l'heure</li>
+</ul>
 <span class="ts-num">04 — 04</span>
 </div>
 </div>
@@ -356,7 +403,6 @@
 </section><section class="section" style="padding-top:2.5rem; padding-bottom:3rem">
 <div class="wrap" style="text-align:center">
 <p class="serif" data-i18n="tour.out" style="font-size:clamp(1.4rem,3.5vw,2.2rem); color:var(--coral-soft)">Quatre univers. Une seule main.</p>
-<a class="btn btn-ghost" href="/realisations" style="margin-top:1.6rem"><span data-i18n="tour.cta">Voir les réalisations</span><span class="arr">→</span></a>
 </div>
 </section>
 <!-- ============ CTA BAND ============ -->
@@ -376,7 +422,46 @@
 <span class="eyebrow" data-i18n="cta.eyebrow">Prêt à déléguer ?</span>
 <h2 data-i18n="cta.title" style="margin-top:1rem">On s'occupe de tout.</h2>
 <p class="lead" data-i18n="cta.lead">Dites-nous où vous en êtes. On vous montre concrètement ce que votre présence peut devenir en un mois.</p>
-<a class="btn btn-primary" href="/contact"><span data-i18n="cta.btn">Prendre contact</span><span class="arr">→</span></a>
+<a class="btn btn-primary" href="#contact"><span data-i18n="cta.btn">Prendre contact</span><span class="arr">→</span></a>
+</div>
+</div>
+</section>
+<section class="section" id="contact">
+<div class="wrap">
+<div class="grid cols-2" style="gap:clamp(2.5rem,6vw,5rem); align-items:start">
+<div class="reveal">
+<span class="eyebrow" data-i18n="pg.contact.eyebrow">Contact</span>
+<h2 class="h-sec" data-i18n="contact.title" style="margin:1rem 0 1.2rem">Votre lieu mérite mieux qu'un compte à l'abandon.</h2>
+<p class="lead" data-i18n="contact.lead">Dites-nous où vous êtes et ce que vous servez. On vous répond sous 48 heures.</p>
+<div class="contact-rows" style="margin-top:2.6rem">
+<div class="contact-row"><span class="k" data-i18n="c.k1">Email</span><a class="v" href="mailto:contact@nocta.paris">contact@nocta.paris</a></div>
+<div class="contact-row"><span class="k" data-i18n="c.k2">Zone</span><span class="v" data-i18n="c.v2">Paris &amp; Île-de-France</span></div>
+<div class="contact-row"><span class="k" data-i18n="c.k3">Instagram</span><a class="v" href="https://instagram.com" rel="noopener" target="_blank">@nocta.paris</a></div>
+<div class="contact-row"><span class="k" data-i18n="c.k4">Réponse</span><span class="v" data-i18n="c.v4">Sous 48 heures</span></div>
+</div>
+</div>
+<div class="card reveal d1" style="padding:clamp(1.8rem,3vw,2.6rem)">
+<div class="form-grid" id="reelForm">
+<div class="field"><label data-i18n="f.name" for="fName">Votre nom</label><input autocomplete="name" data-i18n-attr="placeholder:f.name" id="fName" name="name" required="" type="text"/></div>
+<div class="field"><label data-i18n="f.place" for="fPlace">Nom du lieu</label><input autocomplete="organization" data-i18n-attr="placeholder:f.place" id="fPlace" name="venue" required="" type="text"/></div>
+<div class="field"><label data-i18n="f.email" for="fEmail">Email</label><input autocomplete="email" data-i18n-attr="placeholder:f.email" id="fEmail" name="email" required="" type="email"/></div>
+<div class="field"><label data-i18n="f.phone" for="fPhone">Téléphone (optionnel)</label><input autocomplete="tel" data-i18n-attr="placeholder:f.phone" id="fPhone" name="phone" type="tel"/></div>
+<div class="field"><label data-i18n="f.type" for="fType">Type de lieu</label>
+<select id="fType" name="type">
+<option data-i18n="f.opt.r">Restaurant</option>
+<option data-i18n="f.opt.b">Bar</option>
+<option data-i18n="f.opt.c">Club</option>
+<option data-i18n="f.opt.cs">Coffee shop</option>
+<option data-i18n="f.opt.o">Autre</option>
+</select>
+</div>
+<div class="field full"><label data-i18n="f.message" for="fMsg">Votre lieu en quelques mots</label><textarea data-i18n-attr="placeholder:f.message" id="fMsg" name="message"></textarea></div>
+<input aria-hidden="true" autocomplete="off" id="fHp" name="_gotcha" style="position:absolute;left:-9999px;opacity:0" tabindex="-1" type="text"/>
+<div class="field full">
+<button class="btn btn-primary" id="fSend" style="justify-content:center"><span data-i18n="f.send">Envoyer la demande</span><span class="arr">→</span></button>
+<p aria-live="polite" id="fStatus" role="status" style="margin-top:.8rem; font-family:var(--mono); font-size:.8rem; color:var(--smoke)"></p>
+</div></div>
+</div>
 </div>
 </div>
 </section>
@@ -393,9 +478,9 @@
 <div class="foot-col">
 <h4 data-i18n="foot.nav">Navigation</h4>
 <a data-i18n="nav.home" href="/">Accueil</a>
-<a data-i18n="nav.services" href="/prestations">Prestations</a>
-<a data-i18n="nav.work" href="/realisations">Réalisations</a>
-<a data-i18n="nav.contact" href="/contact">Contact</a>
+<a data-i18n="nav.services" href="#prestations">Prestations</a>
+<a data-i18n="nav.work" href="#realisations">Réalisations</a>
+<a data-i18n="nav.contact" href="#contact">Contact</a>
 </div>
 <div class="foot-col">
 <h4 data-i18n="foot.social">Réseaux</h4>
@@ -412,7 +497,41 @@
 </div>
 </footer>
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
-<script src="/assets/i18n.js?v=12"></script>
-<script src="/assets/app.js?v=12"></script>
+<script src="/assets/config.js?v=13"></script>
+<script src="/assets/i18n.js?v=13"></script>
+<script src="/assets/app.js?v=13"></script>
+<script>
+  (function(){
+    var btn = document.getElementById("fSend");
+    var status = document.getElementById("fStatus");
+    if (!btn || !status) return;
+    function t(key){ var d = (window.NOCTA_I18N && NOCTA_I18N.DICT[NOCTA_I18N.getLang()]) || {}; return d[key] || key; }
+    btn.addEventListener("click", function(){
+      if (document.getElementById("fHp").value) return; // honeypot
+      var data = {
+        name: document.getElementById("fName").value.trim(),
+        venue: document.getElementById("fPlace").value.trim(),
+        email: document.getElementById("fEmail").value.trim(),
+        phone: document.getElementById("fPhone").value.trim(),
+        type: document.getElementById("fType").value,
+        message: document.getElementById("fMsg").value.trim(),
+        _subject: "Nouvelle demande — NOCTA"
+      };
+      if (!data.name || !data.email || !data.venue) { status.textContent = t("f.required"); return; }
+      var endpoint = (window.NOCTA_CONFIG && NOCTA_CONFIG.FORMSPREE_ENDPOINT) || "";
+      if (endpoint) {
+        status.textContent = t("f.sending");
+        btn.disabled = true;
+        fetch(endpoint, { method:"POST", headers:{ "Accept":"application/json", "Content-Type":"application/json" }, body: JSON.stringify(data) })
+          .then(function(r){ if (!r.ok) throw 0; status.textContent = t("f.success"); document.getElementById("reelForm").querySelectorAll("input,select,textarea").forEach(function(el){ el.disabled = true; }); })
+          .catch(function(){ status.textContent = t("f.error"); btn.disabled = false; });
+      } else {
+        var lang = document.documentElement.lang || "fr";
+        var subject = (lang === "en" ? "Contact request — " : "Demande de contact — ") + (data.venue || data.name);
+        var body = [(lang==="en"?"Name: ":"Nom : ")+data.name,(lang==="en"?"Venue: ":"Lieu : ")+data.venue,"Email : "+data.email,(lang==="en"?"Phone: ":"Téléphone : ")+data.phone,"Type : "+data.type,"",data.message].join("\n");
+        window.location.href = "mailto:contact@nocta.paris?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+      }
+    });
+  })();</script>
 </body>
 </html>
